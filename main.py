@@ -1,5 +1,6 @@
 from geopy.distance import geodesic
-from sys import maxsize
+from tsp import tsp
+from tsp2 import tsp2
 
 cd = {
     "Malaysia": (2.745564, 101.707021),
@@ -24,106 +25,58 @@ country = [
     "Seoul"
 ]
 
-# Traveling Salesman Problem: https://www.geeksforgeeks.org/traveling-salesman-problem-tsp-implementation/
-# implementation of traveling Salesman Problem
-def travellingSalesmanProblem(graph, s):
-    # store all vertex apart from source vertex
-    vertex = []
-    for i in range(countries):
-        if i != s:
-            vertex.append(i)
-
-            # store minimum weight Hamiltonian Cycle
-    min_path = maxsize
-
-    while True:
-
-        # store current Path weight(cost)
-        current_pathweight = 0
-
-        # compute current path weight
-        k = s
-        current_route = country[s]
-
-        for i in range(len(vertex)):
-            current_pathweight += graph[k][vertex[i]]
-            k = vertex[i]
-            current_route += "->" + country[k]
-
-        current_pathweight += graph[k][s]
-
-
-        # update minimum
-        if current_pathweight<min_path:
-            shortest_route = current_route
-        min_path = min(min_path, current_pathweight)
-
-        if not next_permutation(vertex):
-            break
-
-    return min_path, shortest_route
-
-
-# next_permutation implementation
-def next_permutation(L):
-    n = len(L)
-
-    i = n - 2
-    while i >= 0 and L[i] >= L[i + 1]:
-        i -= 1
-
-    if i == -1:
-        return False
-
-    j = i + 1
-    while j < n and L[j] > L[i]:
-        j += 1
-    j -= 1
-
-    L[i], L[j] = L[j], L[i]
-
-    left = i + 1
-    right = n - 1
-
-    while left < right:
-        L[left], L[right] = L[right], L[left]
-        left += 1
-        right -= 1
-
-    return True
-
 
 def distance(origin, dest):
     return geodesic(origin, dest).km
 
 
-graph = [[0]*countries for i in range(10)]
+graph = [[0]*countries for i in range(countries)]
 for i in range(countries):
     for j in range(countries):
         graph[i][j] = distance(cd[country[i]], cd[country[j]])
 
 # print(graph)
 s = 0
-print(
-distance(
-    cd["Malaysia"], cd["Jakarta"]
-) + distance(
-    cd["Jakarta"], cd["Bangkok"]
-) + distance(
-    cd["Bangkok"], cd["Taipei"]
-) + distance(
-    cd["Taipei"], cd["Hong Kong"]
-) + distance(
-    cd["Hong Kong"], cd["Tokyo"]
-) + distance(
-    cd["Tokyo"], cd["Beijing"]
-) + distance(
-    cd["Beijing"], cd["Seoul"]
-) + distance(
-    cd["Seoul"], cd["Malaysia"]
-)
-)
-print(travellingSalesmanProblem(graph, s))
+print()
+# print(
+# distance(
+#     cd["Malaysia"], cd["Jakarta"]
+# ) + distance(
+#     cd["Jakarta"], cd["Bangkok"]
+# ) + distance(
+#     cd["Bangkok"], cd["Taipei"]
+# ) + distance(
+#     cd["Taipei"], cd["Hong Kong"]
+# ) + distance(
+#     cd["Hong Kong"], cd["Tokyo"]
+# ) + distance(
+#     cd["Tokyo"], cd["Beijing"]
+# ) + distance(
+#     cd["Beijing"], cd["Seoul"]
+# ) + distance(
+#     cd["Seoul"], cd["Malaysia"]
+# )
+# )
+
+tsp(graph, s, country)
+tsp2(graph, s, country)
+
+# no_return = tsp2(graph, s, country)
+# route = no_return.get_route()
+# print(route)
+#
+# print()
+#
+# with_return = tsp(graph, s, country)
+# route = with_return.get_route()
+# print(route)
+
+
+
+
+
+
+
 
 # # With Google Distance Matrix API (no flight routes)
 # import googlemaps
