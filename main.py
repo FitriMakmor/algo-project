@@ -58,12 +58,12 @@ print()
 # )
 # )
 
-tsp(graph, s, country)
-tsp2(graph, s, country)
+# tsp(graph, s, country)
+# tsp2(graph, s, country)
 
-# no_return = tsp2(graph, s, country)
-# route = no_return.get_route()
-# print(route)
+no_return = tsp2(graph, s, country)
+route = no_return.get_route()
+print(route)
 #
 # print()
 #
