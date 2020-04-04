@@ -1,0 +1,45 @@
+
+
+[Positive]: 
+fast well significant improvement significant improvement stable good easing improving well resilient 
+Total Positive words: 12
+
+[Negative]: 
+critical critical grim hard outbreak risks slow slump struggling unemployment vice virus virus virus 
+Total Negative words: 14
+
+
+[Positive]: 
+premier swift premier swift improvement upbeat support timely 
+Total Positive words: 8
+
+[Negative]: 
+crisis difficult falls problems sharply struggling struggling threat unreasonable worst 
+Total Negative words: 10
+
+
+[Positive]: 
+work clearly work sharp recovery solid skilled recovery sensitive recovery 
+Total Positive words: 10
+
+[Negative]: 
+bad decline decline deteriorate fallen fallen fears gross gross infected killed killed outbreak poor recession restricted sharply shock unable unemployment unreasonable unreasonable unreasonable unskilled unwilling virus weakness weakness 
+Total Negative words: 28
+
+
+[Positive]: 
+led encouraging like like like recovery better sensitive effectively good 
+Total Positive words: 10
+
+[Negative]: 
+decline deteriorating poor problem shock sunk terrible toll virus virus worst 
+Total Negative words: 11
+
+
+[Positive]: 
+fast boost afford top top clear right rapid enough protective protective works optimistic boost stabilize right blockbuster like tougher worth tough clear leverage honor 
+Total Positive words: 24
+
+[Negative]: 
+aggressive chaotic concern crisis debt decline delay discrimination disrupt epidemic fallout fallout fallout fear fearful fever fragile fragile fragile hard havoc hurt hurting hurting impossible improbable infected jeopardize killed lose lose lose lose losses lost lost outbreak outbreak outbreak outbreak outbreak outbreak outbreak outbreak pessimistic pigs problem problems scrambling slump stress tricky unable unemployment unlikely unrest upheaval virus virus virus virus virus virus virus virus warned weakness worried worried worried 
+Total Negative words: 70
