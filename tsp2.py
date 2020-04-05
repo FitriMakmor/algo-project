@@ -2,7 +2,9 @@ from sys import maxsize
 import copy
 
 class tsp2():
-    # Traveling Salesman Problem: https://www.geeksforgeeks.org/traveling-salesman-problem-tsp-implementation/
+    # Ref link for Traveling Salesman Problem:
+    # https://www.geeksforgeeks.org/traveling-salesman-problem-tsp-implementation/
+    # *This code has been heavily edited to fit current problem context
     # implementation of traveling Salesman Problem
     def __init__(self, graph, s, country):
         # store all vertex apart from source vertex
