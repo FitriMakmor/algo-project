@@ -43,3 +43,12 @@ Total Positive words: 7
 [Negative]: 
 abrupt collapse critical damaging decline delayed doubt drought fears infections limited outbreak panic recession restrict risky slashing slow tumbled virus worst 
 Total Negative words: 21
+
+
+[Positive]: 
+like effective effectiveness effective leading like important 
+Total Positive words: 7
+
+[Negative]: 
+abrupt collapse critical damaging decline delayed doubt drought fears infections limited outbreak panic recession restrict risky slashing slow tumbled virus worst 
+Total Negative words: 21

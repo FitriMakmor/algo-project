@@ -4,7 +4,7 @@ import dash_html_components as html
 
 app= dash.Dash()
 
-app.tittle ='word count'
+app.title = 'Word Count'
 
 app.layout=html.Div(
     html.Div([
@@ -18,7 +18,7 @@ app.layout=html.Div(
                     {'x':['Beijing','Hong Kong','Indonesia','Japan','Korea','Taiwan','Thailand'],'y':[1456,1360,825,1092,845,1320,977],'type':'bar','name': 'Stop Count'}
                 ],
                 'layout':{
-                    'titlee':'Positive and negative word'
+                    'title':'Positive and Negative Words'
                 }
             }
         ),
@@ -27,6 +27,5 @@ app.layout=html.Div(
 )
 
 
-
-if __name__ =='__main__':
-    app.run_server(debug=True,port=3007)
+if __name__ == '__main__':
+    app.run_server(debug=True, port=3007)

@@ -2,9 +2,9 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 
-app= dash.Dash()
+app = dash.Dash()
 
-app.tittle ='Positive word'
+app.title = 'Positive Word'
 
 app.layout=html.Div(
     html.Div([
@@ -18,7 +18,7 @@ app.layout=html.Div(
                     {'x':['Beijing','Hong Kong','Indonesia','Japan','Korea','Taiwan','Thailand'],'y':[64,57,33,48,46,78,57],'type':'bar','name': 'Positive Count'}
                 ],
                 'layout':{
-                    'titlee':'Positive and negative word'
+                    'title':'Positive and Negative Word'
                 }
             }
         ),
@@ -27,6 +27,5 @@ app.layout=html.Div(
 )
 
 
-
-if __name__ =='__main__':
-    app.run_server(debug=True,port=3006)
+if __name__ == '__main__':
+    app.run_server(debug=True, port=3006)
