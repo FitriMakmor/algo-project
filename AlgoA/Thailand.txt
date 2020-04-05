@@ -1,0 +1,45 @@
+
+
+[Positive]: 
+quiet striking quiet like well enough 
+Total Positive words: 6
+
+[Negative]: 
+burning crisis fear idle idle lie malaise poorer punch struggling virus virus 
+Total Negative words: 12
+
+
+[Positive]: 
+leading confidence recovery relief relief boost effective contribution easing 
+Total Positive words: 9
+
+[Negative]: 
+alarm blow crisis delayed difficult downturn fall infections issues limited limited negative outbreak unable unclear unlikely worse 
+Total Negative words: 17
+
+
+[Positive]: 
+aspiration better protection important support productive better wellbeing better prosperous better swift better fair support boost 
+Total Positive words: 16
+
+[Negative]: 
+drought fallen fallen falling falling inequality loss poor poorest poverty poverty poverty poverty poverty poverty poverty poverty poverty poverty poverty poverty poverty poverty poverty risk severe sluggish suffered vulnerable weak 
+Total Negative words: 30
+
+
+[Positive]: 
+optimistic indebted significant softer confidence confidence contribution contribution cleared easing supporting well grace work proactive supporting ease supportive significant 
+Total Positive words: 19
+
+[Negative]: 
+aggressive aversion breaks decline delayed delayed delayed delays delays delays deteriorating downside downside drag drought drought fell fell gross instability loss outbreak poorly rail risk risks risks risks risks shock slowest slump steep struggling virus vulnerable vulnerable weak weak weak weaker weaker 
+Total Negative words: 42
+
+
+[Positive]: 
+like effective effectiveness effective leading like important 
+Total Positive words: 7
+
+[Negative]: 
+abrupt collapse critical damaging decline delayed doubt drought fears infections limited outbreak panic recession restrict risky slashing slow tumbled virus worst 
+Total Negative words: 21
