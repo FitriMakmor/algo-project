@@ -42,7 +42,13 @@ class GoogleMapPlotter(object):
         self.ground_overlays = []
         self.radpoints = []
         self.gridsetting = None
+        # # For Mac
+        # self.coloricon = os.path.join(os.path.dirname(__file__), 'markers/%s.png')
+
+        # For Windows
         self.coloricon = os.path.join(os.path.dirname(__file__), 'markers/%s.png')
+        self.coloricon = self.coloricon.replace('/', '\\').replace('\\', '\\\\')
+
         self.color_dict = mpl_color_map
         self.html_color_codes = html_color_codes
 

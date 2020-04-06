@@ -6,46 +6,22 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false&key=AIzaSyADPWVyNFbG-E0rpvNF6qnL6XBdIy48L94"></script>
 <script type="text/javascript">
 	function initialize() {
-		var centerlatlng = new google.maps.LatLng(37.766956, -122.438481);
+		var centerlatlng = new google.maps.LatLng(18.496610, 115.147213);
 		var myOptions = {
-			zoom: 13,
+			zoom: 4,
 			center: centerlatlng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-		var latlng = new google.maps.LatLng(37.770776, -122.461689);
-		var img = new google.maps.MarkerImage('C:\Users\LEGION\Documents\Courses\Semester 4\Algorithm Design and Analysis\Project\gmplot\markers/6495ED.png');
+		var latlng = new google.maps.LatLng(2.745564, 101.707021);
+		var img = new google.maps.MarkerImage('C:\\Users\\LEGION\\Documents\\Courses\\Semester 4\\Algorithm Design and Analysis\\Project\\gmplot\\markers\\6495ED.png');
 		var marker = new google.maps.Marker({
 		title: "no implementation",
 		icon: img,
 		position: latlng
 		});
 		marker.setMap(map);
-
-var PolylineCoordinates = [
-new google.maps.LatLng(2.745564, 101.707021),
-new google.maps.LatLng(-6.126928, 106.653502),
-new google.maps.LatLng(13.697766, 100.751978),
-new google.maps.LatLng(13.697766, 100.751978),
-new google.maps.LatLng(25.081791, 121.237306),
-new google.maps.LatLng(22.308000, 113.918500),
-new google.maps.LatLng(35.549400, 139.779800),
-new google.maps.LatLng(40.079900, 116.603100),
-new google.maps.LatLng(37.460200, 126.440700),
-];
-
-var Path = new google.maps.Polyline({
-clickable: false,
-geodesic: true,
-path: PolylineCoordinates,
-strokeColor: "#6495ED",
-strokeOpacity: 1.000000,
-strokeWeight: 10
-});
-
-Path.setMap(map);
-
 
 
 var center = new google.maps.LatLng(2.745564, 101.707021);
