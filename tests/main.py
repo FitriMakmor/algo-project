@@ -37,6 +37,9 @@ gmap.scatter(top_attraction_lats, top_attraction_lons, '#3B0B39', size=40, marke
 klia_lan, klia_lon = 2.745564,101.707021
 gmap.marker(klia_lan, klia_lon, 'cornflowerblue')
 
+# Testing tengok kalau line ni wujud x selepas pull
+# Tambah lagi nak test
+
 # Draw
 gmap.draw("my_map.html")
 
@@ -48,3 +51,4 @@ new = 2
 # open an HTML file on my own (Windows) computer
 url = os.getcwd()+"\my_map.html"
 webbrowser.open(url,new=new)
+
