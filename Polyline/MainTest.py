@@ -1,73 +1,32 @@
+from gmplot import gmplot
 import webbrowser
-f = open('Polyline.html','wb')
+import os
 
-message = """<html>
-<head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Polylines</title>
-    <style>
-         /* Always set the map height explicitly to define the size of the div
-        * element that contains the map. */
-         #map {
-             height: 100%;
-         }
-         /* Optional: Makes the sample page fill the window. */
-         html, body {
-             height: 100%;
-             margin: 0;
-             padding: 0;
-         }
-    </style>
-</head>
-<body>
-    <div id="map"></div>
-    <h1>My Google Map</h1>
-    <script>
+# Place map
+gmap = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyD803CsvDwLLM-f2exIrQdC1e_M1d7nnYg")
 
-        // This example creates a 2-pixel-wide red polyline showing the path of
-        // the first trans-Pacific flight between Oakland, CA, and Brisbane,
-        // Australia which was made by Charles Kingsford Smith.
-
-        function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 5,
-                center: { lat: 2.745564, lng: 101.707021 },
-                mapTypeId: 'terrain'
-            });
+latitude, longtitude = zip(*[
+    (2.745564, 101.707021),
+    (-6.126928, 106.653502),
+    (13.697766, 100.751978),
+    (13.697766, 100.751978),
+    (25.081791, 121.237306),
+    (22.308000, 113.918500),
+    (35.549400, 139.779800),
+    (40.079900, 116.603100),
+    (37.460200, 126.440700),
+    ])
+gmap.scatter(latitude, longtitude,'# FF0000', size = 50, marker = False )
+gmap.plot(latitude, longtitude,'cornflowerblue', edge_width = 4.5)
 
 
-            var flightPlan = [
+gmap.draw("Polyline.html")
 
-                { lat: 2.745564, lng: 101.707021 },
-                { lat: -6.126928, lng: 106.653502 },
-                { lat: 13.697766, lng: 100.751978 },
-                { lat: 25.081791, lng: 121.237306 },
-                { lat: 22.308000, lng: 113.918500 },
-                { lat: 35.549400, lng: 139.779800 },
-                { lat: 40.079900, lng: 116.603100 },
-                { lat: 37.460200, lng: 126.440700 }
-            ];
+print(os.getcwd())
 
-            var flightPath = new google.maps.Polyline({
-                path: flightPlan,
-                geodesic: true,
-                strokeColor: '#FF0000',
-                strokeOpacity: 1.0,
-                strokeWeight: 2
-            });
+# open in a new tab, if possible
+new = 2
 
-            flightPath.setMap(map);
-        }
-    </script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD803CsvDwLLM-f2exIrQdC1e_M1d7nnYg&callback=initMap">
-    </script>
-</body>
-</html>"""
-
-f.write(message.encode())
-f.close()
-
-filename = 'D:\KhairilNajimi\Lecture Notes\SEM4\Algo\python\AssignmentAlgo/' + 'Polyline.html'
-webbrowser.open_new_tab(filename)
+# open an HTML file on my own (Windows) computer
+url = os.getcwd()+"\Polyline.html"
+webbrowser.open(url,new=new)
