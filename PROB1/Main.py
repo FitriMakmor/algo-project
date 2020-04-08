@@ -1,82 +1,84 @@
 from gmplot import gmplot
 import webbrowser
 import os
+from geopy.distance import geodesic
+from tsp import tsp
+from tsp2 import tsp2
 
+cd = {
+    "Malaysia": (2.745564, 101.707021),
+    "Jakarta": (-6.126928, 106.653502),
+    "Bangkok": (13.697766, 100.751978),
+    "Taipei": (25.081791, 121.237306),
+    "Hong Kong": (22.308000, 113.918500),
+    "Tokyo": (35.549400, 139.779800),
+    "Beijing": (40.079900, 116.603100),
+    "Seoul": (37.460200, 126.440700),
+}
+countries = len(cd)
+
+country = [
+    "Malaysia",
+    "Jakarta",
+    "Bangkok",
+    "Taipei",
+    "Hong Kong",
+    "Tokyo",
+    "Beijing",
+    "Seoul",
+]
+
+
+def distance(origin, dest):
+    return geodesic(origin, dest).km
+
+
+graph = [[0]*countries for i in range(countries)]
+for i in range(countries):
+    for j in range(countries):
+        graph[i][j] = distance(cd[country[i]], cd[country[j]])
+
+s = 0
+print()
+
+# change tsp2 to tsp if traveller returns
+planned_route = tsp2(graph, s, country)
+route = planned_route.get_route()
+print(route)
+
+
+# # Map Output - Marker Placement and Plotlines
 # Place map
 gmap = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyADPWVyNFbG-E0rpvNF6qnL6XBdIy48L94")
 
 # Marker
 
-# Malaysia Negara Tercinta uhuk
-mas_lan, mas_lon = 2.745564, 101.707021
-gmap.marker(mas_lan, mas_lon, "cornflowerblue")
-
-# Indonesia
-indo_lan, indo_lon = -6.126928,106.653502
-gmap.marker(indo_lan, indo_lon, "cornflowerblue")
-
-# Thailand
-thai_lan, thai_lon = 13.697766,100.751978
-gmap.marker(thai_lan, thai_lon, "cornflowerblue")
-
-# Taipei
-tpei_lan, tpei_lon = 25.081791,121.237306
-gmap.marker(tpei_lan, tpei_lon, "cornflowerblue")
-
-# Hong Kong
-hk_lan, hk_lon = 22.308000,113.918500
-gmap.marker(hk_lan, hk_lon, "cornflowerblue")
-
-# Japan
-jap_lan, jap_lon = 35.549400,139.779800
-gmap.marker(jap_lan, jap_lon, "cornflowerblue")
-
-# Beijing
-bei_lan, bei_lon = 40.079900,116.603100
-gmap.marker(bei_lan, bei_lon, "cornflowerblue")
-
-# Korea
-kor_lan, kor_lon = 37.460200,126.440700
-gmap.marker(kor_lan, kor_lon, "cornflowerblue")
+for i in range(countries):
+    gmap.marker(cd[country[i]][0], cd[country[i]][1], "crimson")
 
 # Draw
-gmap.draw("my_map.html")
-
-print(os.getcwd())
+gmap.draw("mapMarker.html")
 
 # open in a new tab, if possible
-new = 2
+newtab = 2
 
-# open an HTML file on my own (Windows) computer
-url = os.getcwd()+"\my_map.html"
-webbrowser.open(url,new=new)
+# open the HTML file in a web browser
+url = os.getcwd()+"\mapMarker.html"
+webbrowser.open(url, new=newtab)
 
 
 # Polyline
 gmap1 = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyD803CsvDwLLM-f2exIrQdC1e_M1d7nnYg")
 
-top_attraction_lats, top_attraction_lons = zip(*[
-    (2.745564, 101.707021),
-    (-6.126928, 106.653502),
-    (13.697766, 100.751978),
-    (13.697766, 100.751978),
-    (25.081791, 121.237306),
-    (22.308000, 113.918500),
-    (35.549400, 139.779800),
-    (40.079900, 116.603100),
-    (37.460200, 126.440700),
-    ])
-gmap1.scatter(top_attraction_lats, top_attraction_lons,'# FF0000', size = 40, marker = False )
-gmap1.plot(top_attraction_lats, top_attraction_lons,'cornflowerblue', edge_width = 2.5)
+route_lats, route_lons = [], []
+for i in range(countries):
+    route_lats.append(cd[route[i]][0])
+    route_lons.append(cd[route[i]][1])
 
+gmap1.plot(route_lats, route_lons,'darkorchid', edge_width = 4.5)
 
-gmap1.draw("my_mapPolyline.html")
+gmap1.draw("mapPolyline.html")
 
-print(os.getcwd())
-
-# open in a new tab, if possible
-new1 = 2
-
-# open an HTML file on my own (Windows) computer
-url1 = os.getcwd()+"\my_mapPolyline.html"
-webbrowser.open(url1,new=new1)
+# open the HTML file in a web browser
+url1 = os.getcwd()+"\mapPolyline.html"
+webbrowser.open(url1, new=newtab)

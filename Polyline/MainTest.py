@@ -17,7 +17,7 @@ latitude, longtitude = zip(*[
     (37.460200, 126.440700),
     ])
 gmap.scatter(latitude, longtitude,'# FF0000', size = 50, marker = False )
-gmap.plot(latitude, longtitude,'cornflowerblue', edge_width = 4.5)
+gmap.plot(latitude, longtitude,'darkorchid', edge_width = 4.5)
 
 
 gmap.draw("Polyline.html")
