@@ -2,6 +2,7 @@ from gmplot import gmplot
 import webbrowser
 import os
 
+
 # Place map
 gmap = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyADPWVyNFbG-E0rpvNF6qnL6XBdIy48L94")
 
@@ -39,9 +40,6 @@ gmap.marker(bei_lan, bei_lon, "cornflowerblue")
 kor_lan, kor_lon = 37.460200,126.440700
 gmap.marker(kor_lan, kor_lon, "cornflowerblue")
 
-# Testing tengok kalau line ni wujud x selepas pull
-# Tambah lagi nak test
-
 # Draw
 gmap.draw("my_map.html")
 
@@ -50,7 +48,7 @@ print(os.getcwd())
 # open in a new tab, if possible
 new = 2
 
-# open an HTML file on my own (Windows) computer
+# open an HTML file in a web browser (Windows)
 url = os.getcwd()+"\my_map.html"
 webbrowser.open(url,new=new)
 
