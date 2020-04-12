@@ -1,45 +1,8 @@
 
+Positive words: 
+affordable, affordable, ample, attractive, attractive, attractive, attractive, available, better, bolster, cheaper, cheaper, competitive, consistent, convenience, convenience, defeat, easing, enough, enough, formidable, free, free, generous, helped, hot, hot, hot, hot, hot, hot, hot, hot, important, leading, led, like, like, luck, luxury, masters, popular, prefer, protect, protective, ready, spirited, strong, strong, strong, swanky, tender, tender, tough, well, wins, work, worth, worth, 
+Total Positive Words: 59
 
-[Positive]: 
-protective convenience well popular free 
-Total Positive words: 5
-
-[Negative]: 
-crisis crisis deadly decline died difficult ferocity gross hard hard killed narrower outbreak protests protests protests protests rattled recession recession revolt seething strain suffering suffering toll unwanted unwanted violent worse worst worst 
-Total Negative words: 32
-
-
-[Positive]: 
-affordable wins tender tender enough consistent cheaper attractive attractive defeat 
-Total Positive words: 10
-
-[Negative]: 
-afraid fall limit limit randomly strange strange 
-Total Negative words: 7
-
-
-[Positive]: 
-available better luck helped generous cheaper strong swanky bolster worth ample 
-Total Positive words: 11
-
-[Negative]: 
-crowded decline dents deterioration died dismal doldrums drought emergency failing outbreak protests recession shaky struggling virus volatility worsening 
-Total Negative words: 18
-
-
-[Positive]: 
-tough protect hot masters important worth 
-Total Positive words: 6
-
-[Negative]: 
-death decline fall fall fell gloom gross hurt negative outbreak outbreak outbreak protests protests protests protests protests recession recession recession scared severe syndrome threat toll unnecessary unrest violent virus virus worse worst 
-Total Negative words: 32
-
-
-[Positive]: 
-hot hot hot easing strong ready strong hot formidable spirited hot luxury work like like leading attractive enough prefer hot competitive led attractive free hot 
-Total Positive words: 25
-
-[Negative]: 
-attacks cheap cheap collapse crisis debt defensive deter dumping emergency expensive expensive expensive failed falling hard hedge limited opponent protests punch slump turbulent volatile volatility volatility warning weaken 
-Total Negative words: 28
+Negative words: 
+afraid, attacks, cheap, cheap, collapse, crisis, crisis, crisis, crowded, deadly, death, debt, decline, decline, decline, defensive, dents, deter, deterioration, died, died, difficult, dismal, doldrums, drought, dumping, emergency, emergency, expensive, expensive, expensive, failed, failing, fall, fall, fall, falling, fell, ferocity, gloom, gross, gross, hard, hard, hard, hedge, hurt, killed, limit, limit, limited, narrower, negative, opponent, outbreak, outbreak, outbreak, outbreak, outbreak, protests, protests, protests, protests, protests, protests, protests, protests, protests, protests, protests, punch, randomly, rattled, recession, recession, recession, recession, recession, recession, revolt, scared, seething, severe, shaky, slump, strain, strange, strange, struggling, suffering, suffering, syndrome, threat, toll, toll, turbulent, unnecessary, unrest, unwanted, unwanted, violent, violent, virus, virus, virus, volatile, volatility, volatility, volatility, warning, weaken, worse, worse, worsening, worst, worst, worst, 
+Total Negative Words: 117
