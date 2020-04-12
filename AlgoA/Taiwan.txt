@@ -1,8 +1,16 @@
 
-Positive words: 
-abundant, advanced, better, booming, boost, boost, bright, clearly, effectiveness, exceeded, exuberance, faster, good, helped, helped, helping, hot, improved, improved, improvement, intelligence, intelligent, leading, led, led, like, like, like, like, luck, modest, poised, positive, properly, rapid, recovery, reforming, right, satisfactory, secure, sharp, significant, smooth, stable, stable, steady, straightforward, straightforward, strong, strong, strong, strong, stronger, supports, supports, sustainable, sustainable, top, tough, victory, well, work, work, work, work, worth, worth, worth, worth, 
 Total Positive Words: 69
 
-Negative words: 
-complex, concerns, concerns, conflict, crisis, critical, crude, damaged, debts, decline, decline, difficult, difficulty, discourage, drag, dust, exhaust, fail, fell, friction, fumes, gross, hefty, impossible, insulting, issues, issues, issues, liability, loath, lose, loss, lure, lure, obstacle, opposition, opposition, problems, prohibitively, raked, reluctant, risks, sluggish, smell, strike, struggling, undermine, unemployment, unemployment, unemployment, weak, 
 Total Negative Words: 51
+
+________________________________________________________________
+
+
+Positive words found in articles: 
+
+ abundant , advanced , better , booming , boost , boost , bright , clearly , effectiveness , exceeded , exuberance , faster , good , helped , helped , helping , hot , improved , improved , improvement , intelligence , intelligent , leading , led , led , like , like , like , luck , modest , poised , positive , properly , rapid , recovery , reforming , right , satisfactory , secure , sharp , significant , smooth , stable , stable , steady , straightforward , straightforward , strong , strong , strong , strong , stronger , supports , supports , sustainable , sustainable , top , tough , victory , well , work , work , work , work , worth , worth , worth , worth ,
+
+
+Negative words found in articles: 
+
+ complex , concerns , concerns , conflict , crisis , critical , crude , damaged , debts , decline , decline , difficult , difficulty , discourage , drag , dust , exhaust , fail , fell , friction , fumes , gross , hefty , impossible , insulting , issues , issues , issues , liability , loath , lose , loss , lure , lure , obstacle , opposition , opposition , problems , prohibitively , raked , reluctant , risks , sluggish , smell , strike , struggling , undermine , unemployment , unemployment , unemployment , weak ,
