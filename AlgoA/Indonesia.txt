@@ -1,45 +1,8 @@
 
+Positive words: 
+available, bolster, dedicated, flexible, gained, great, led, led, led, led, led, led, led, led, protect, rapid, reasonable, reasonable, safe, significant, significant, significant, significant, stabilize, stimulate, support, support, support, well, worth, worth, worth, worth, 
+Total Positive Words: 33
 
-[Positive]: 
-significant well reasonable reasonable 
-Total Positive words: 4
-
-[Negative]: 
-concerns drag gross illness infected limit slow underestimate virus virus weakening 
-Total Negative words: 11
-
-
-[Positive]: 
-worth led gained great 
-Total Positive words: 4
-
-[Negative]: 
-blunt breaking concerns crash crash crashing crashing decline decline decline decline drags dumped failed fall fall fall fell fell fell fell limit limit loss lost panic rejection slow steep steep suffered volatile worst worst 
-Total Negative words: 34
-
-
-[Positive]: 
-rapid led led safe worth significant stimulate dedicated significant stabilize 
-Total Positive words: 10
-
-[Negative]: 
-crisis crisis death death downfall dump dumped dumped fear fears fears fleeing illness infected killed lost recession recession succumb suffering toll virus volatile 
-Total Negative words: 23
-
-
-[Positive]: 
-support bolster available worth support significant led led flexible support protect worth 
-Total Positive words: 12
-
-[Negative]: 
-burden crisis desperate downfall dumped gross illness infected limit limit limit limits nervous outbreak outbreak stress stress struggle virus weaken weaken weakening weakening worsen worst 
-Total Negative words: 25
-
-
-[Positive]: 
-led led led 
-Total Positive words: 3
-
-[Negative]: 
-bad concerns crisis dead death decline decline difficult downfall dumped fears fell fell limit lose lost panic panicking slashing virus virus 
-Total Negative words: 21
+Negative words: 
+bad, blunt, breaking, burden, concerns, concerns, concerns, crash, crash, crashing, crashing, crisis, crisis, crisis, crisis, dead, death, death, death, decline, decline, decline, decline, decline, decline, desperate, difficult, downfall, downfall, downfall, drag, drags, dump, dumped, dumped, dumped, dumped, dumped, failed, fall, fall, fall, fear, fears, fears, fears, fell, fell, fell, fell, fell, fell, fleeing, gross, gross, illness, illness, illness, infected, infected, infected, killed, limit, limit, limit, limit, limit, limit, limit, limits, lose, loss, lost, lost, lost, nervous, outbreak, outbreak, panic, panic, panicking, recession, recession, rejection, slashing, slow, slow, steep, steep, stress, stress, struggle, succumb, suffered, suffering, toll, underestimate, virus, virus, virus, virus, virus, virus, volatile, volatile, weaken, weaken, weakening, weakening, weakening, worsen, worst, worst, worst, 
+Total Negative Words: 114

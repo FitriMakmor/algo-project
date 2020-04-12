@@ -70,7 +70,7 @@ affluent
 afford
 affordable
 affordably
-afordable
+affordable
 agile
 agilely
 agility
@@ -200,7 +200,7 @@ best-selling
 better
 better-known
 better-than-expected
-beutifully
+beautifully
 blameless
 bless
 blessing
@@ -352,8 +352,8 @@ contribution
 convenience
 convenient
 conveniently
-convience
-convienient
+convenience
+convenient
 convient
 convincing
 convincingly
@@ -479,7 +479,7 @@ easygoing
 ebullience
 ebullient
 ebulliently
-ecenomical
+economical
 economical
 ecstasies
 ecstasy
@@ -568,7 +568,7 @@ entertain
 entertaining
 entertains
 enthral
-enthrall
+enthrals
 enthralled
 enthuse
 enthusiasm
@@ -610,7 +610,7 @@ exalting
 exaltingly
 examplar
 examplary
-excallent
+excellent
 exceed
 exceeded
 exceeding
@@ -618,7 +618,6 @@ exceedingly
 exceeds
 excel
 exceled
-excelent
 excellant
 excelled
 excellence
@@ -679,7 +678,6 @@ famed
 famous
 famously
 fancier
-fancinating
 fancy
 fanfare
 fans
@@ -702,7 +700,7 @@ fav
 fave
 favor
 favorable
-favored
+favoured
 favorite
 favorited
 favour
@@ -866,7 +864,7 @@ gumption
 gush
 gusto
 gutsy
-hail
+ hail 
 halcyon
 hale
 hallmark
@@ -1964,7 +1962,6 @@ wieldy
 willing
 willingly
 willingness
-win
 windfall
 winnable
 winner

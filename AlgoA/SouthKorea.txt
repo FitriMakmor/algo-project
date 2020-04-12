@@ -1,0 +1,8 @@
+
+Positive words: 
+available, better, clear, ease, ease, ease, ease, ease, easier, easing, educated, enhance, enhance, enticing, fast, great, hopeful, impressed, improving, lead, led, like, likes, modern, modern, patient, positive, positive, positive, positive, positive, progress, prompt, rapid, reasonable, recovery, secure, sharp, steady, support, supporting, talented, top, top, top, won, won, work, 
+Total Positive Words: 48
+
+Negative words: 
+aggressive, breakdown, concern, concerns, crisis, damaging, death, declining, difficult, difficult, difficulty, disaster, disruption, downturn, epidemic, fall, fallout, fears, gloom, grim, hampered, hurt, knock, limit, limited, outbreak, outbreak, outbreak, outbreak, outbreak, rigid, risks, rival, scramble, slow, slower, slowest, slowest, sluggish, stress, stress, suffered, suffered, tumbled, tumbled, unlikely, vice, virus, virus, virus, virus, volatility, worse, worsen, 
+Total Negative Words: 54
