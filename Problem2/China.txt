@@ -1,0 +1,16 @@
+
+Total Positive Words: 64
+
+Total Negative Words: 133
+
+________________________________________________________________
+
+
+Positive words found in articles: 
+
+ afford , better , blockbuster , boost , boost , clear , clear , clearly , easing , effectively , encouraging , enough , fast , fast , good , good , honor , improvement , improvement , improvement , improving , led , leverage , like , like , like , like , optimistic , premier , premier , protective , protective , rapid , recovery , recovery , recovery , recovery , resilient , right , right , sensitive , sensitive , sharp , significant , significant , skilled , solid , stabilize , stable , support , swift , swift , timely , top , top , tough , tougher , upbeat , well , well , work , work , works , worth ,
+
+
+Negative words found in articles: 
+
+ aggressive , bad , chaotic , concern , crisis , crisis , critical , critical , debt , decline , decline , decline , decline , delay , deteriorate , deteriorating , difficult , discrimination , disrupt , epidemic , fallen , fallen , fallout , fallout , falls , fear , fearful , fears , fever , fragile , fragile , fragile , grim , gross , gross , hard , hard , havoc , hurt , hurting , hurting , impossible , improbable , infected , infected , jeopardize , killed , killed , killed , lose , lose , lose , lose , losses , lost , lost , outbreak , outbreak , outbreak , outbreak , outbreak , outbreak , outbreak , outbreak , pessimistic , pigs , poor , poor , problem , problem , problems , problems , recession , restricted , risks , scrambling , sharply , sharply , shock , shock , slow , slump , slump , stress , struggling , struggling , struggling , sunk , terrible , threat , toll , tricky , unable , unable , unemployment , unemployment , unemployment , unlikely , unreasonable , unreasonable , unreasonable , unreasonable , unrest , unskilled , unwilling , upheaval , vice , virus , virus , virus , virus , virus , virus , virus , virus , virus , virus , virus , virus , virus , virus , warned , weakness , weakness , weakness , worried , worried , worried , worst , worst ,
