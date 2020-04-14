@@ -6,4 +6,5 @@ Economic Travel Planner using Python and Google APIs for Algorithm Design and An
 * Travelling Salesman Problem
 * ~Dijkstra~
 * Rabin-karp algo to find stopwords
+* KMP to find positive/negative words
 

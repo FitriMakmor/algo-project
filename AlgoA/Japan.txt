@@ -1,45 +1,16 @@
 
+Total Positive Words: 48
 
-[Positive]: 
-optimistic easing lucrative ready like quiet famous best modest approval support effectively work top bargain upscale contribution like like blossom 
-Total Positive words: 20
+Total Negative Words: 128
 
-[Negative]: 
-battering concern damage deadly death delay depressed devastating emergency epidemic epidemic epidemic explosive fall fragile gloomy hard knock leery limited outbreak outbreak outbreak outbreak recession recession recession recession shock slower slump standstill struggling struggling suffer threat threat toll unclear unlikely unusually virus virus warned wild worst 
-Total Negative words: 46
+________________________________________________________________
 
 
-[Positive]: 
-dedicated work comprehensive well work free like like secure accurately 
-Total Positive words: 10
+Positive words found in articles: 
 
-[Negative]: 
-concerned concerns impose issue issues risks risks risks shake terrorism threats threats unclear undermine 
-Total Negative words: 14
+ accurately , approval , bargain , best , blossom , boost , boost , boost , comprehensive , contribution , dedicated , easing , effectively , enough , famous , free , fresh , gain , gained , helped , helping , lead , led , like , like , like , like , like , lucrative , modest , optimistic , positive , premier , quiet , ready , secure , sharp , sharp , stronger , support , support , supported , top , upscale , well , work , work , work ,
 
 
-[Positive]: 
-sharp boost sharp led stronger 
-Total Positive words: 5
+Negative words found in articles: 
 
-[Negative]: 
-battered collapse crash crash crude crude declining fall fall fall falls fears fears infection issues issues issues issues limit losses lost negative panicked rattled sagged tumbled virus 
-Total Negative words: 27
-
-
-[Positive]: 
-gained helped boost boost helping gain 
-Total Positive words: 6
-
-[Negative]: 
-concerns dented downbeat fail issues issues losses retreat risk tumbled turmoil volatility volatility volatility weaken weaker 
-Total Negative words: 16
-
-
-[Positive]: 
-support supported enough positive fresh premier lead 
-Total Positive words: 7
-
-[Negative]: 
-anxiety battered cheap concerns damage dump fears hurt infected infections losses losses lost lost lost lost outbreak risk virus virus volatility volatility warning worries worst 
-Total Negative words: 25
+ anxiety , battered , battered , battering , cheap , collapse , concern , concerned , concerns , concerns , concerns , crash , crude , crude , damage , damage , deadly , death , declining , delay , dented , depressed , devastating , downbeat , dump , emergency , epidemic , epidemic , epidemic , explosive , fail , fall , fall , fall , fall , falls , fears , fears , fears , fragile , gloomy , hard , hurt , impose , infected , infection , infections , issue , issues , issues , issues , issues , issues , issues , issues , knock , leery , limit , limited , losses , losses , losses , losses , lost , lost , lost , lost , lost , negative , outbreak , outbreak , outbreak , outbreak , outbreak , panicked , rattled , recession , recession , recession , recession , retreat , risk , risk , risks , risks , risks , sagged , shake , shock , slower , slump , standstill , struggling , struggling , suffer , terrorism , threat , threat , threats , threats , toll , tumbled , tumbled , turmoil , unclear , unclear , undermine , unlikely , unusually , virus , virus , virus , virus , virus , volatility , volatility , volatility , volatility , volatility , warned , warning , weaken , weaker , wild , worries , worst , worst ,
