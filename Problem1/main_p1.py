@@ -2,8 +2,8 @@ from gmplot import gmplot
 import webbrowser
 import os
 from geopy.distance import geodesic
-from tsp import tsp
-from tsp2 import tsp2
+from Problem1.tsp import tsp
+from Problem1.tsp2 import tsp2
 
 cd = {
     "Malaysia": (2.745564, 101.707021),
