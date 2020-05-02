@@ -42,7 +42,7 @@ s = 0
 print()
 
 # change tsp2 to tsp if traveller returns
-planned_route = tsp2(graph, s, country)
+planned_route = tsp(graph, s, country)
 route = planned_route.get_route()
 print(route)
 
