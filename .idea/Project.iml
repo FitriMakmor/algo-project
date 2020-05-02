@@ -7,5 +7,7 @@
     <orderEntry type="jdk" jdkName="Python 3.7 (Project) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="gmplot" />
+    <orderEntry type="module" module-name="Tries" />
+    <orderEntry type="module" module-name="Test" />
   </component>
 </module>
