@@ -44,20 +44,43 @@ planned_route = tsp2(city_distance, 0, country)
 route = planned_route.get_route()
 
 # Klu nak bandingkan distance antara dua country, boleh uncommment pastu refer list print(city_distance) bawah ni
-print(city_distance)
+# print(city_distance)
 
 
 # economy ni untuk digantikan dgn data prob2 yang bebeno
 econ = {
-    "Malaysia": 0.53,
-    "Jakarta": 0.50,
-    "Bangkok": 0.70,
-    "Taipei": 0.49,
-    "Hong Kong": 0.51,
-    "Tokyo": 0.47,
-    "Beijing": 0.50,
-    "Seoul": 0.54
+    "Malaysia": 0.99,
+    "Jakarta": 0.0,
+    "Bangkok": 0.0,
+    "Taipei": 0.0,
+    "Hong Kong": 0.0,
+    "Tokyo": 0.0,
+    "Beijing": 0.0,
+    "Seoul": 0.0
 }
+
+cities = ["Bangkok", "Seoul", "Beijing", "Tokyo", "Hong Kong", "Jakarta", "Taipei"]
+
+countpos = open("/Users/safi/PycharmProjects/MasterGit/Problem2/countpos.txt", "r")
+countneg = open("/Users/safi/PycharmProjects/MasterGit/Problem2/countneg.txt", "r")
+Parray = countpos.read().split()
+Narray = countneg.read().split()
+Parray = [int(i) for i in Parray]
+Narray = [int(i) for i in Narray]
+print(Parray, Narray)
+
+
+for i in range(len(Parray)):
+    Pnum = Parray[i]
+    Nnum = Narray[i]
+    percent = ((Pnum)/(Pnum+Nnum))
+    percent = "{:.2f}".format(percent)
+    f = float(percent)
+    cur_city = cities[i]
+    econ.update({cur_city : f})
+    i += 1
+
+print(econ)
 
 # Bawah ni untuk soalan Problem 3 gunakan parameter yang dia bagi
 potential_city = route.copy()
@@ -72,7 +95,7 @@ city_check = 1
 
 for h in range (len(potential_city)-1):
     while city_check < len(potential_city):
-        if city_check != city_b and econ[potential_city[city_b]]+.02 < econ[potential_city[city_check]] and city_distance[city_c][country.index(potential_city[city_b])]*1.4 >= city_distance[city_c][country.index(potential_city[city_check])]:
+        if city_check != city_b and econ[potential_city[city_b]]+.02 < econ[potential_city[city_check]] and city_distance[city_c][country.index(potential_city[city_b])] >= city_distance[city_c][country.index(potential_city[city_check])] - 800:
             city_b = city_check
             city_check = -1
         city_check += 1

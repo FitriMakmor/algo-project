@@ -257,7 +257,12 @@ for f in range(len(article)):
         createResult.write("\n")
         createResult.write("\nTotal Positive Words: " + str(Pcounter) + "\n")
 
-        createResult.write("________________________________________________________________\n")
+        file1 = open("countpos.txt", "a")  # append mode
+        file1.write(str(Pcounter))
+        file1.write("\n")
+        file1.close()
+
+        createResult.write("______________________\n")
 
         # counter for negative words in file
         Ncounter = 0
@@ -270,6 +275,10 @@ for f in range(len(article)):
         Ncount[f] = Ncounter
         createResult.write("\n")
         createResult.write("\nTotal Negative Words: " + str(Ncounter) + "\n")
+        file2 = open("countneg.txt", "a")  # append mode
+        file2.write(str(Ncounter))
+        file2.write("\n")
+        file2.close()
 
         print("Total Positive words: ", Pcount[f])
         print("Total Negative words: ", Ncount[f])
@@ -277,6 +286,9 @@ for f in range(len(article)):
         f += 1
     readFile.close()
     createResult.close()
+
+
+
 
 print("\nAll words counting - finished")
 
@@ -328,8 +340,5 @@ app.layout=html.Div(
 )
 
 
-if __name__ =='__main__':
+if __name__ =='_main_':
     app.run_server(debug=True,port=3007)
-
-
-
