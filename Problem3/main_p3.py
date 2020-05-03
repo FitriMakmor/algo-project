@@ -1,11 +1,10 @@
-
-
 from gmplot import gmplot
 import webbrowser
 import os
 from geopy.distance import geodesic
 from Problem3.tsp import tsp
 from Problem3.tsp2 import tsp2
+import platform
 
 cd = {
     "Malaysia": (2.745564, 101.707021),
@@ -63,13 +62,24 @@ econ = {
 
 cities = ["Bangkok", "Seoul", "Beijing", "Tokyo", "Hong Kong", "Jakarta", "Taipei"]
 
-countpos = open("/Users/safi/PycharmProjects/MasterGit/Problem2/countpos.txt", "r")
-countneg = open("/Users/safi/PycharmProjects/MasterGit/Problem2/countneg.txt", "r")
+pos_url, neg_url = "", ""
+os_type = platform.system()
+if os_type == "Windows":
+    pos_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"\\Problem2\\countpos.txt"
+    neg_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"\\Problem2\\countneg.txt"
+elif os_type == "Linux" or "Max":
+    pos_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"/Problem2/countpos.txt"
+    neg_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"/Problem2/countneg.txt"
+
+countpos = open(pos_url, "r")
+countneg = open(neg_url, "r")
 Parray = countpos.read().split()
 Narray = countneg.read().split()
 Parray = [int(i) for i in Parray]
 Narray = [int(i) for i in Narray]
-print(Parray, Narray)
+
+# comment/uncomment code bwh ni untuk tengok positive words dgn negative words
+# print(Parray, Narray)
 
 
 for i in range(len(Parray)):
@@ -82,9 +92,10 @@ for i in range(len(Parray)):
     econ.update({cur_city : f})
     i += 1
 
+# comment/uncomment code bwh ni untuk tengok economy score setiap negara
 print(econ)
 
-# Bawah ni untuk soalan Problem 3 gunakan parameter yang dia bagi
+# Bawah ni untuk soalan route Problem 3
 potential_city = route.copy()
 new_route = [potential_city.pop(0)]
 city_b = 0
@@ -93,7 +104,7 @@ city_check = 1
 
 # city_c: current starting city to compare distance
 # city_b: current "best" city to be the next destination
-# city_check: city being checked with candidate city as suitable replacement
+# city_check: city being checked with candidate city ("best" city) as suitable replacement
 
 for h in range (len(potential_city)-1):
     while city_check < len(potential_city):
