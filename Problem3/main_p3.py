@@ -44,7 +44,7 @@ planned_route = tsp2(city_distance, 0, country)
 route = planned_route.get_route()
 
 # Klu nak bandingkan distance antara dua country, boleh uncommment pastu refer list print(city_distance) bawah ni
-# print(city_distance)
+print(city_distance)
 
 
 # economy ni untuk digantikan dgn data prob2 yang bebeno
