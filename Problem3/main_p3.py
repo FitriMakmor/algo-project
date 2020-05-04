@@ -45,7 +45,7 @@ planned_route = tsp2(city_distance, 0, country)
 route = planned_route.get_route()
 
 # Klu nak bandingkan distance antara dua country, boleh uncommment pastu refer list print(city_distance) bawah ni
-# print(city_distance)
+print(city_distance)
 
 
 # economy ni untuk digantikan dgn data prob2 yang bebeno
@@ -108,7 +108,7 @@ city_check = 1
 
 for h in range (len(potential_city)-1):
     while city_check < len(potential_city):
-        if city_check != city_b and econ[potential_city[city_b]]+.02 < econ[potential_city[city_check]] and city_distance[city_c][country.index(potential_city[city_b])] >= city_distance[city_c][country.index(potential_city[city_check])] - 800:
+        if city_check != city_b and econ[potential_city[city_b]] < econ[potential_city[city_check]] and econ[potential_city[city_check]] > 0.5 and city_distance[city_c][country.index(potential_city[city_b])] >= city_distance[city_c][country.index(potential_city[city_check])] - 900:
             city_b = city_check
             city_check = -1
         city_check += 1

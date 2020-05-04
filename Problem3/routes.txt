@@ -10,3 +10,16 @@ for h in range (len(potential_city)-1):
     city_b = 0
     city_check = 1
 new_route.append(potential_city.pop(0))
+
+ROUTE 10
+for h in range (len(potential_city)-1):
+    while city_check < len(potential_city):
+        if city_check != city_b and econ[potential_city[city_b]] < econ[potential_city[city_check]] and econ[potential_city[city_check]] > 0.5 and city_distance[city_c][country.index(potential_city[city_b])] >= city_distance[city_c][country.index(potential_city[city_check])] - 900:
+            city_b = city_check
+            city_check = -1
+        city_check += 1
+    city_c = country.index(potential_city[city_b])
+    new_route.append(potential_city.pop(city_b))
+    city_b = 0
+    city_check = 1
+new_route.append(potential_city.pop(0))
