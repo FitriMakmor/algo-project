@@ -4,6 +4,7 @@ import os
 from geopy.distance import geodesic
 from Problem3.tsp import tsp
 from Problem3.tsp2 import tsp2
+import platform
 
 cd = {
     "Malaysia": (2.745564, 101.707021),
@@ -49,17 +50,52 @@ route = planned_route.get_route()
 
 # economy ni untuk digantikan dgn data prob2 yang bebeno
 econ = {
-    "Malaysia": 0.53,
-    "Jakarta": 0.50,
-    "Bangkok": 0.70,
-    "Taipei": 0.49,
-    "Hong Kong": 0.51,
-    "Tokyo": 0.47,
-    "Beijing": 0.50,
-    "Seoul": 0.54
+    "Malaysia": 0.99,
+    "Jakarta": 0.0,
+    "Bangkok": 0.0,
+    "Taipei": 0.0,
+    "Hong Kong": 0.0,
+    "Tokyo": 0.0,
+    "Beijing": 0.0,
+    "Seoul": 0.0
 }
 
-# Bawah ni untuk soalan Problem 3 gunakan parameter yang dia bagi
+cities = ["Bangkok", "Seoul", "Beijing", "Tokyo", "Hong Kong", "Jakarta", "Taipei"]
+
+pos_url, neg_url = "", ""
+os_type = platform.system()
+if os_type == "Windows":
+    pos_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"\\Problem2\\countpos.txt"
+    neg_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"\\Problem2\\countneg.txt"
+elif os_type == "Linux" or "Max":
+    pos_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"/Problem2/countpos.txt"
+    neg_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"/Problem2/countneg.txt"
+
+countpos = open(pos_url, "r")
+countneg = open(neg_url, "r")
+Parray = countpos.read().split()
+Narray = countneg.read().split()
+Parray = [int(i) for i in Parray]
+Narray = [int(i) for i in Narray]
+
+# comment/uncomment code bwh ni untuk tengok positive words dgn negative words
+# print(Parray, Narray)
+
+
+for i in range(len(Parray)):
+    Pnum = Parray[i]
+    Nnum = Narray[i]
+    percent = ((Pnum)/(Pnum+Nnum))
+    percent = "{:.2f}".format(percent)
+    f = float(percent)
+    cur_city = cities[i]
+    econ.update({cur_city : f})
+    i += 1
+
+# comment/uncomment code bwh ni untuk tengok economy score setiap negara
+print(econ)
+
+# Bawah ni untuk soalan route Problem 3
 potential_city = route.copy()
 new_route = [potential_city.pop(0)]
 city_b = 0
@@ -68,11 +104,11 @@ city_check = 1
 
 # city_c: current starting city to compare distance
 # city_b: current "best" city to be the next destination
-# city_check: city being checked with candidate city as suitable replacement
+# city_check: city being checked with candidate city ("best" city) as suitable replacement
 
 for h in range (len(potential_city)-1):
     while city_check < len(potential_city):
-        if city_check != city_b and econ[potential_city[city_b]]+.02 < econ[potential_city[city_check]] and city_distance[city_c][country.index(potential_city[city_b])]*1.4 >= city_distance[city_c][country.index(potential_city[city_check])]:
+        if city_check != city_b and econ[potential_city[city_b]]+.02 < econ[potential_city[city_check]] and city_distance[city_c][country.index(potential_city[city_b])] >= city_distance[city_c][country.index(potential_city[city_check])] - 800:
             city_b = city_check
             city_check = -1
         city_check += 1
