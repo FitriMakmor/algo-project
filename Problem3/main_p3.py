@@ -4,6 +4,8 @@ import os
 from geopy.distance import geodesic
 from Problem3.tsp import tsp
 from Problem3.tsp2 import tsp2
+from Problem3.textRoute import textRoute
+from Problem3.heapSort import heapSort
 import platform
 import itertools
 import sys
@@ -76,8 +78,6 @@ for i in range(countries):
 city_c = 0
 planned_route = tsp2(city_distance, 0, country)
 route = planned_route.get_route()
-
-print("Total Distance = ",total_distance(route))
 
 # # Klu nak bandingkan distance antara dua country, boleh uncommment pastu refer list print(city_distance) bawah ni
 # print(city_distance)
@@ -161,7 +161,7 @@ for h in range (len(potential_city)-1):
 new_route.append(potential_city.pop(0))
 
 print("New route with given parameters:", new_route)
-print("Total distance: ",total_distance(new_route,))
+print("Total distance: ", total_distance(new_route,))
 
 
 max = -sys.maxsize
@@ -185,8 +185,9 @@ for i in range(len(possible_routes)):
         route_econ.append(econ[modified_possible_route[j]])
     # f.write("Economy score       -> %s\n\n" % route_econ)
     # f.close()
-print("Max: ", max, "\nMin: ", min)
+print("\nMax Distance: ", max, "\nMin Distance: ", min)
 # ------------------------------------------------------------------------------------
+
 
 # # ---------------Generate all routes WITH SCORE and append to scored_routes.txt-----
 # for i in range(len(possible_routes)):
@@ -205,6 +206,29 @@ print("Max: ", max, "\nMin: ", min)
 #     f.close()
 # # ------------------------------------------------------------------------------------
 
+f = open("scored_routes.txt")
+lines = f.readlines()
+routes = []
+
+for i in range(len(lines)//5):
+    content = ""
+    score = 0
+    for j in range(5):
+        content += str(lines[j + 5 * i])
+    score = float(lines[3+5*i].split("Route score         -> ", 1)[1].strip("\n"))
+    routes.append(textRoute(content, score))
+f.close()
+
+# Sort the routes using Heap Sort Algorithm
+heapSort(routes)
+
+# # ----------------Inserted the newly sorted routes into sorted_routes.txt-------------
+# f = open("sorted_routes.txt", "a")
+# for i in range(len(lines)//5):
+#     f.write("Ranking             -> %4d\n" % (i+1))
+#     f.write(routes[i].content)
+# f.close()
+# # ------------------------------------------------------------------------------------
 
 # # -------------Masukkan Data shortest route ke dalam text file----------------------
 # f = open("compare_three_routes.txt", "a")
