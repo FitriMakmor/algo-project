@@ -1,11 +1,11 @@
 
 [Positive]: 
-available, better, clear, ease, ease, ease, ease, ease, easier, easing, educated, enhance, enhance, enticing, fast, great, hopeful, impressed, improving, lead, led, like, likes, modern, modern, patient, positive, positive, positive, positive, positive, progress, prompt, rapid, reasonable, recovery, secure, sharp, steady, support, supporting, talented, top, top, top, won, won, work, 
+affordable, affordable, ample, attractive, attractive, attractive, attractive, available, better, bolster, cheaper, cheaper, competitive, consistent, convenience, convenience, defeat, easing, enough, enough, formidable, free, free, generous, helped, hot, hot, hot, hot, hot, hot, hot, hot, important, leading, led, like, like, luck, luxury, masters, popular, prefer, protect, protective, ready, spirited, strong, strong, strong, swanky, tender, tender, tough, well, wins, work, worth, worth, 
 
-Total Positive Words: 48
-________________________________________________________________
+Total Positive Words: 59
+______________________
 
 [Negative]: 
-aggressive, breakdown, concern, concerns, crisis, damaging, death, declining, difficult, difficult, difficulty, disaster, disruption, downturn, epidemic, fall, fallout, fears, gloom, grim, hampered, hurt, knock, limit, limited, outbreak, outbreak, outbreak, outbreak, outbreak, rigid, risks, rival, scramble, slow, slower, slowest, slowest, sluggish, stress, stress, suffered, suffered, tumbled, tumbled, unlikely, vice, virus, virus, virus, virus, volatility, worse, worsen, 
+afraid, attacks, cheap, cheap, collapse, crisis, crisis, crisis, crowded, deadly, death, debt, decline, decline, decline, defensive, dents, deter, deterioration, died, died, difficult, dismal, doldrums, drought, dumping, emergency, emergency, expensive, expensive, expensive, failed, failing, fall, fall, fall, falling, fell, ferocity, gloom, gross, gross, hard, hard, hard, hedge, hurt, killed, limit, limit, limited, narrower, negative, opponent, outbreak, outbreak, outbreak, outbreak, outbreak, protests, protests, protests, protests, protests, protests, protests, protests, protests, protests, protests, punch, randomly, rattled, recession, recession, recession, recession, recession, recession, revolt, scared, seething, severe, shaky, slump, strain, strange, strange, struggling, suffering, suffering, syndrome, threat, toll, toll, turbulent, unnecessary, unrest, unwanted, unwanted, violent, violent, virus, virus, virus, volatile, volatility, volatility, volatility, warning, weaken, worse, worse, worsening, worst, worst, worst, 
 
-Total Negative Words: 54
+Total Negative Words: 117

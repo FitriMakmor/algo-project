@@ -1,11 +1,11 @@
 
 [Positive]: 
-afford, better, blockbuster, boost, boost, clear, clear, clearly, easing, effectively, encouraging, enough, fast, fast, good, good, honor, improvement, improvement, improvement, improving, led, leverage, like, like, like, like, optimistic, premier, premier, protective, protective, rapid, recovery, recovery, recovery, recovery, resilient, right, right, sensitive, sensitive, sharp, significant, significant, skilled, solid, stabilize, stable, support, swift, swift, timely, top, top, tough, tougher, upbeat, well, well, work, work, works, worth, 
+available, bolster, dedicated, flexible, gained, great, led, led, led, led, led, led, led, led, protect, rapid, reasonable, reasonable, safe, significant, significant, significant, significant, stabilize, stimulate, support, support, support, well, worth, worth, worth, worth, 
 
-Total Positive Words: 64
-________________________________________________________________
+Total Positive Words: 33
+______________________
 
 [Negative]: 
-aggressive, bad, chaotic, concern, crisis, crisis, critical, critical, debt, decline, decline, decline, decline, delay, deteriorate, deteriorating, difficult, discrimination, disrupt, epidemic, fallen, fallen, fallout, fallout, fallout, falls, fear, fearful, fears, fever, fragile, fragile, fragile, grim, gross, gross, hard, hard, havoc, hurt, hurting, hurting, impossible, improbable, infected, infected, jeopardize, killed, killed, killed, lose, lose, lose, lose, losses, lost, lost, outbreak, outbreak, outbreak, outbreak, outbreak, outbreak, outbreak, outbreak, outbreak, outbreak, pessimistic, pigs, poor, poor, problem, problem, problems, problems, recession, restricted, risks, scrambling, sharply, sharply, shock, shock, slow, slump, slump, stress, struggling, struggling, struggling, sunk, terrible, threat, toll, tricky, unable, unable, unemployment, unemployment, unemployment, unlikely, unreasonable, unreasonable, unreasonable, unreasonable, unrest, unskilled, unwilling, upheaval, vice, virus, virus, virus, virus, virus, virus, virus, virus, virus, virus, virus, virus, virus, virus, warned, weakness, weakness, weakness, worried, worried, worried, worst, worst, 
+bad, blunt, breaking, burden, concerns, concerns, concerns, crash, crash, crashing, crashing, crisis, crisis, crisis, crisis, dead, death, death, death, decline, decline, decline, decline, decline, decline, desperate, difficult, downfall, downfall, downfall, drag, drags, dump, dumped, dumped, dumped, dumped, dumped, failed, fall, fall, fall, fear, fears, fears, fears, fell, fell, fell, fell, fell, fell, fleeing, gross, gross, illness, illness, illness, infected, infected, infected, killed, limit, limit, limit, limit, limit, limit, limit, limits, lose, loss, lost, lost, lost, nervous, outbreak, outbreak, panic, panic, panicking, recession, recession, rejection, slashing, slow, slow, steep, steep, stress, stress, struggle, succumb, suffered, suffering, toll, underestimate, virus, virus, virus, virus, virus, virus, volatile, volatile, weaken, weaken, weakening, weakening, weakening, worsen, worst, worst, worst, 
 
-Total Negative Words: 133
+Total Negative Words: 114
