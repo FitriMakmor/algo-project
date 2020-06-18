@@ -282,7 +282,7 @@ heapSort(routes)
 # webbrowser.open(url1, new=2)
 # # -----------------------------------------------------------------------
 
-# # ------------------View route through Google Map API--------------------
+# # ------------------View shortest route through Google Map API-----------
 # # Polyline
 # gmap1 = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyD803CsvDwLLM-f2exIrQdC1e_M1d7nnYg")
 #
