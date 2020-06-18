@@ -117,7 +117,7 @@ Narray = [int(i) for i in Narray]
 # print(Parray, Narray)
 
 
-for i in range(len(Parray)):
+while i<len(cities):
     Pnum = Parray[i]
     Nnum = Narray[i]
     percent = ((Pnum)/(Pnum+Nnum))
