@@ -22,7 +22,6 @@ list3 = NList.read().split()
 
 def KMPSearch(pat, txt):
 
-
     pat = " " + pat + " "
     txt = " " + txt + " "
     m = len(pat)
@@ -239,40 +238,6 @@ def removeStop(x,y,z):
     input = x
     clean = y
     country = z
-    # Counting the number of words before and after cleaning.
-    # before
-    for i in range(len(input)):
-        file_name = input[i]
-        words = 0
-        with open(file_name, 'r') as file:
-            for line in file:
-                words += len(line.split())
-        numbers[i] = words
-        i += 1
-    # after
-    for i in range(len(cleaned)):
-        file_name = cleaned[i]
-        words = 0
-        with open(file_name, 'r') as file:
-            for line in file:
-                words += len(line.split())
-        totalnumber[i] = words
-        stopwords[i] = numbers[i] - totalnumber[i]
-        i += 1
-
-    # printing the data
-    print("\n-----------Total number of words--------------")
-
-    for k in range(len(numbers)):
-        print("For ", country[k], ": ", numbers[k], " words ")
-        k += 1
-
-    print("\n--------------Total number of stopwords-----------\n")
-    for k in range(len(stopwords)):
-        print("For ", country[k], ": ", stopwords[k], " stopwords")
-        k += 1
-
-    # printing the filtering process
     print("\n----------------Filtering-------------------------")
     delete_list = [" a ", " the ", " about ", " an ", " are ", " as ", " at ", " be ", " by ", " for ", " from ",
                    " how ", " in ", " is ", " it ", " of ", " on ", " or", " that ", " this ", " to ", " was ",
@@ -336,6 +301,43 @@ def removeStop(x,y,z):
 
         print("Done scanning and filtering process for:", infile)
         i += 1
+
+
+    # Counting the number of words before and after cleaning.
+    # before
+    for i in range(len(input)):
+        file_name = input[i]
+        words = 0
+        with open(file_name, 'r') as file:
+            for line in file:
+                words += len(line.split())
+        numbers[i] = words
+        i += 1
+    # after
+    for i in range(len(cleaned)):
+        file_name = cleaned[i]
+        words = 0
+        with open(file_name, 'r') as file:
+            for line in file:
+                words += len(line.split())
+        totalnumber[i] = words
+        stopwords[i] = numbers[i] - totalnumber[i]
+        i += 1
+
+    # printing the data
+    print("\n-----------Total number of words--------------")
+
+    for k in range(len(numbers)):
+        print("For ", country[k], ": ", numbers[k], " words ")
+        k += 1
+
+    print("\n--------------Total number of stopwords-----------\n")
+    for k in range(len(stopwords)):
+        print("For ", country[k], ": ", stopwords[k], " stopwords")
+        k += 1
+
+
+
     print("\n######################  REMOVING STOPWORDS FROM TXT.FILE - END #################################\n")
 def graph(P,N,n,t):
     Pcount = P
@@ -393,10 +395,10 @@ def graph(P,N,n,t):
 # Driver program to test the above function
 
 removeStop(input,cleaned,country)
-stopwordPatternSearch(input,country) #to see the pattern of stopwords using Rabin Karp algo
-posnegwordspattern(cleaned) # to see the pattern of pos/neg words using KMPSearch algo
-storeposneg(cleaned,result)
-graph(Pcount,Ncount,numbers,totalnumber)
+#stopwordPatternSearch(input,country) #to see the pattern of stopwords using Rabin Karp algo
+#posnegwordspattern(cleaned) # to see the pattern of pos/neg words using KMPSearch algo
+#storeposneg(cleaned,result)
+#graph(Pcount,Ncount,numbers,totalnumber)
 
 
 
