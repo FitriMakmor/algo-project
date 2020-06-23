@@ -4,7 +4,43 @@ import os
 from geopy.distance import geodesic
 from Problem3.tsp import tsp
 from Problem3.tsp2 import tsp2
+from Problem3.textRoute import textRoute
+from Problem3.heapSort import heapSort
 import platform
+import itertools
+import sys
+
+
+def distance(origin, dest):
+    return geodesic(origin, dest).km
+
+
+def total_distance(city_route):
+    sum_dist = 0
+    for i in range(len(country)-1):
+        sum_dist = sum_dist + city_distance[country.index(city_route[i])][country.index(city_route[i+1])]
+    return sum_dist
+
+
+def get_dict_key(val, dict):
+    for key, value in dict.items():
+        if val == value:
+            return key
+
+    return "key doesn't exist"
+
+
+def route_score(city_route, tot_distance, highest, lowest):
+    no_of_edges = len(country)-1
+    middle = (highest+lowest)/2
+    A = 1
+    B = 1
+    sum_score = 0
+    for i in range(len(country)):
+        sum_score = sum_score + (A * (econ[city_route[i]]) * (no_of_edges-i))
+    sum_score = sum_score + (B * (middle/tot_distance))
+    return sum_score
+
 
 cd = {
     "Malaysia": (2.745564, 101.707021),
@@ -30,8 +66,7 @@ country = [
 ]
 
 
-def distance(origin, dest):
-    return geodesic(origin, dest).km
+
 
 
 city_distance = [[0]*countries for i in range(countries)]
@@ -44,7 +79,7 @@ city_c = 0
 planned_route = tsp2(city_distance, 0, country)
 route = planned_route.get_route()
 
-# Klu nak bandingkan distance antara dua country, boleh uncommment pastu refer list print(city_distance) bawah ni
+# # Klu nak bandingkan distance antara dua country, boleh uncommment pastu refer list print(city_distance) bawah ni
 # print(city_distance)
 
 
@@ -92,8 +127,15 @@ for i in range(len(Parray)):
     econ.update({cur_city : f})
     i += 1
 
-# comment/uncomment code bwh ni untuk tengok economy score setiap negara
-print(econ)
+# # comment/uncomment code bwh ni untuk tengok economy score setiap negara
+# print(econ)
+
+val_list = list(econ.values())
+val_list.sort(reverse=True)
+best_econ_route = []
+for i in range(countries):
+    best_econ_route.append(get_dict_key(val_list[i], econ))
+
 
 #negative econ
 econneg = {
@@ -155,7 +197,11 @@ city_check = 1
 
 for h in range (len(potential_city)-1):
     while city_check < len(potential_city):
+<<<<<<< HEAD
         if city_check != city_b and econneg[potential_city[city_b]] < econneg[potential_city[city_check]] and econneg[potential_city[city_check]] <0.6 and city_distance[city_c][country.index(potential_city[city_b]) >= city_distance[city_c][country.index(potential_city[city_check])]]+1000:
+=======
+        if city_check != city_b and econ[potential_city[city_b]]+.02 < econ[potential_city[city_check]] and city_distance[city_c][country.index(potential_city[city_b])]*1.4 >= city_distance[city_c][country.index(potential_city[city_check])]:
+>>>>>>> e3d1c17c900b20770b2eb84ef652ef655b2ed47a
             city_b = city_check
             city_check = -1
         city_check += 1
@@ -165,22 +211,160 @@ for h in range (len(potential_city)-1):
     city_check = 1
 new_route.append(potential_city.pop(0))
 
-print("New route:", new_route)
+print("New route with given parameters:", new_route)
+print("Total distance: ", total_distance(new_route,))
 
-# Bawah ni utk tengok google map output.
-# Boleh comment code bawah ni klu nak tengok output dekat console je
-# Polyline
-gmap1 = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyD803CsvDwLLM-f2exIrQdC1e_M1d7nnYg")
 
-route_lats, route_lons = [], []
-for i in range(countries):
-    route_lats.append(cd[new_route[i]][0])
-    route_lons.append(cd[new_route[i]][1])
+max = -sys.maxsize
+min = sys.maxsize
 
-gmap1.plot(route_lats, route_lons,'darkorchid', edge_width = 4.5)
+# ---------------Generate all possible routes and append to routes.txt----------------
+possible_routes = list(itertools.permutations(country[1:]))
+for i in range(len(possible_routes)):
+    modified_possible_route = list(possible_routes[i])
+    modified_possible_route.insert(0, "Malaysia")
+    tot_dist = total_distance(modified_possible_route)
+    if tot_dist > max:
+        max = tot_dist
+    if tot_dist < min:
+        min = tot_dist
+    # f = open("routes.txt", "a")
+    # f.write("Route %4d          -> %s\n" % (i+1, str(modified_possible_route)))
+    # f.write("Total distance (km) -> %s\n" % tot_dist)
+    route_econ = []
+    for j in range (countries):
+        route_econ.append(econ[modified_possible_route[j]])
+    # f.write("Economy score       -> %s\n\n" % route_econ)
+    # f.close()
+print("\nMax Distance: ", max, "\nMin Distance: ", min)
+# ------------------------------------------------------------------------------------
 
-gmap1.draw("mapPolyline.html")
 
-# open the HTML file in a web browser
-url1 = os.getcwd()+"\mapPolyline.html"
-webbrowser.open(url1, new=2)
+# # ---------------Generate all routes WITH SCORE and append to scored_routes.txt-----
+# for i in range(len(possible_routes)):
+#     modified_possible_route = list(possible_routes[i])
+#     modified_possible_route.insert(0, "Malaysia")
+#     tot_dist = total_distance(modified_possible_route)
+#     f = open("scored_routes.txt", "a")
+#     f.write("Route %4d          -> %s\n" % (i+1, str(modified_possible_route)))
+#     f.write("Total distance (km) -> %s\n" % tot_dist)
+#     route_econ = []
+#     for j in range(countries):
+#         route_econ.append(econ[modified_possible_route[j]])
+#     f.write("Economy score       -> %s\n" % route_econ)
+#     rte_score = route_score(modified_possible_route, tot_dist, max, min)
+#     f.write("Route score         -> %s\n\n" % rte_score)
+#     f.close()
+# # ------------------------------------------------------------------------------------
+
+f = open("scored_routes.txt")
+lines = f.readlines()
+routes = []
+
+for i in range(len(lines)//5):
+    content = ""
+    score = 0
+    for j in range(5):
+        content += str(lines[j + 5 * i])
+    score = float(lines[3+5*i].split("Route score         -> ", 1)[1].strip("\n"))
+    routes.append(textRoute(content, score))
+f.close()
+
+# Sort the routes using Heap Sort Algorithm
+heapSort(routes)
+
+# # ----------------Inserted the newly sorted routes into sorted_routes.txt-------------
+# f = open("sorted_routes.txt", "a")
+# for i in range(len(lines)//5):
+#     f.write("Ranking             -> %4d\n" % (i+1))
+#     f.write(routes[i].content)
+# f.close()
+# # ------------------------------------------------------------------------------------
+
+# # -------------Masukkan Data shortest route ke dalam text file----------------------
+# f = open("compare_three_routes.txt", "a")
+# f.write("Route 0001          -> %s\n" % str(route))
+# f.write("Total distance (km) -> %s\n" % total_distance(route))
+# route_econ = []
+# for i in range (countries):
+#     route_econ.append(econ[route[i]])
+# f.write("Economy score       -> %s\n\n" % route_econ)
+# f.close()
+# # -----------------------------------------------------------------------------------
+
+# # -------------Masukkan Data best econ route ke dalam text file----------------------
+# f = open("compare_three_routes.txt", "a")
+# f.write("Route 0002          -> %s\n" % str(best_econ_route))
+# f.write("Total distance (km) -> %s\n" % total_distance(best_econ_route))
+# route_econ = []
+# for i in range (countries):
+#     route_econ.append(econ[best_econ_route[i]])
+# f.write("Economy score       -> %s\n\n" % route_econ)
+# f.close()
+# # -----------------------------------------------------------------------------------
+
+# # -------------Masukkan optimised route ke dalam text file----------------------
+# f = open("compare_three_routes.txt", "a")
+# f.write("Route 0003          -> %s\n" % str(new_route))
+# f.write("Total distance (km) -> %s\n" % total_distance(new_route))
+# route_econ = []
+# for i in range (countries):
+#     route_econ.append(econ[new_route[i]])
+# f.write("Economy score       -> %s\n\n" % route_econ)
+# f.close()
+# # -----------------------------------------------------------------------------------
+
+
+# # ------------------View best_econ_route through Google Map API--------------------
+# # Polyline
+# gmap1 = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyD803CsvDwLLM-f2exIrQdC1e_M1d7nnYg")
+#
+# route_lats, route_lons = [], []
+# for i in range(countries):
+#     route_lats.append(cd[best_econ_route[i]][0])
+#     route_lons.append(cd[best_econ_route[i]][1])
+#
+# gmap1.plot(route_lats, route_lons,'darkorchid', edge_width = 4.5)
+#
+# gmap1.draw("mapPolyline.html")
+#
+# # open the HTML file in a web browser
+# url1 = os.getcwd()+"\mapPolyline.html"
+# webbrowser.open(url1, new=2)
+# # -----------------------------------------------------------------------
+
+# # ------------------View route through Google Map API--------------------
+# # Polyline
+# gmap1 = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyD803CsvDwLLM-f2exIrQdC1e_M1d7nnYg")
+#
+# route_lats, route_lons = [], []
+# for i in range(countries):
+#     route_lats.append(cd[new_route[i]][0])
+#     route_lons.append(cd[new_route[i]][1])
+#
+# gmap1.plot(route_lats, route_lons,'darkorchid', edge_width = 4.5)
+#
+# gmap1.draw("mapPolyline.html")
+#
+# # open the HTML file in a web browser
+# url1 = os.getcwd()+"\mapPolyline.html"
+# webbrowser.open(url1, new=2)
+# # -----------------------------------------------------------------------
+
+# # ------------------View BEST route through Google Map API--------------------
+# best_route = ["Malaysia","Taipei","Seoul","Tokyo","Beijing","Hong Kong","Bangkok","Jakarta"]
+# gmap1 = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyD803CsvDwLLM-f2exIrQdC1e_M1d7nnYg")
+#
+# route_lats, route_lons = [], []
+# for i in range(countries):
+#     route_lats.append(cd[best_route[i]][0])
+#     route_lons.append(cd[best_route[i]][1])
+#
+# gmap1.plot(route_lats, route_lons,'darkorchid', edge_width = 4.5)
+#
+# gmap1.draw("mapPolyline.html")
+#
+# # open the HTML file in a web browser
+# url1 = os.getcwd()+"\mapPolyline.html"
+# webbrowser.open(url1, new=2)
+# # -----------------------------------------------------------------------
