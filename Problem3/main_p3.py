@@ -50,7 +50,54 @@ route = planned_route.get_route()
 
 # economy ni untuk digantikan dgn data prob2 yang bebeno
 econ = {
-    "Malaysia": 0.99,
+    "Malaysia": 0.53,
+    "Jakarta": 0.22,
+    "Bangkok": 0.32,
+    "Taipei": 0.57,
+    "Hong Kong": 0.34,
+    "Tokyo": 0.27,
+    "Beijing": 0.32,
+    "Seoul": 0.47
+}
+
+cities = ["Bangkok", "Seoul", "Beijing", "Tokyo", "Hong Kong", "Jakarta", "Taipei"]
+
+pos_url, neg_url = "", ""
+os_type = platform.system()
+if os_type == "Windows":
+    pos_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"\\Problem2\\countpos.txt"
+    neg_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"\\Problem2\\countneg.txt"
+elif os_type == "Linux" or "Max":
+    pos_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"/Problem2/countpos.txt"
+    neg_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"/Problem2/countneg.txt"
+
+countpos = open(pos_url, "r")
+countneg = open(neg_url, "r")
+Parray = countpos.read().split()
+Narray = countneg.read().split()
+Parray = [int(i) for i in Parray]
+Narray = [int(i) for i in Narray]
+
+# comment/uncomment code bwh ni untuk tengok positive words dgn negative words
+#print(Parray, Narray)
+
+
+for i in range(len(Parray)):
+    Pnum = Parray[i]
+    Nnum = Narray[i]
+    percent = ((Pnum)/(Pnum+Nnum))
+    percent = "{:.2f}".format(percent)
+    f = float(percent)
+    cur_city = cities[i]
+    econ.update({cur_city : f})
+    i += 1
+
+# comment/uncomment code bwh ni untuk tengok economy score setiap negara
+print(econ)
+
+#negative econ
+econneg = {
+    "Malaysia": 0.00,
     "Jakarta": 0.0,
     "Bangkok": 0.0,
     "Taipei": 0.0,
@@ -78,22 +125,22 @@ Narray = countneg.read().split()
 Parray = [int(i) for i in Parray]
 Narray = [int(i) for i in Narray]
 
-# comment/uncomment code bwh ni untuk tengok positive words dgn negative words
-# print(Parray, Narray)
-
-
 for i in range(len(Parray)):
     Pnum = Parray[i]
     Nnum = Narray[i]
-    percent = ((Pnum)/(Pnum+Nnum))
-    percent = "{:.2f}".format(percent)
-    f = float(percent)
+    percentpos = ((Pnum) / (Pnum + Nnum))
+    percentneg = ((Nnum) / (Pnum + Nnum))
+    percentpos = "{:.2f}".format(percentpos)
+    percentneg = "{:.2f}".format(percentneg)
+    f = float(percentpos)
+    g = float(percentneg)
     cur_city = cities[i]
-    econ.update({cur_city : f})
+    econ.update({cur_city: f})
+    econneg.update({cur_city: g})
+
     i += 1
 
-# comment/uncomment code bwh ni untuk tengok economy score setiap negara
-print(econ)
+print(econneg)
 
 # Bawah ni untuk soalan route Problem 3
 potential_city = route.copy()
@@ -108,7 +155,7 @@ city_check = 1
 
 for h in range (len(potential_city)-1):
     while city_check < len(potential_city):
-        if city_check != city_b and econ[potential_city[city_b]]+.02 < econ[potential_city[city_check]] and city_distance[city_c][country.index(potential_city[city_b])] >= city_distance[city_c][country.index(potential_city[city_check])] - 800:
+        if city_check != city_b and econneg[potential_city[city_b]] < econneg[potential_city[city_check]] and econneg[potential_city[city_check]] <0.6 and city_distance[city_c][country.index(potential_city[city_b]) >= city_distance[city_c][country.index(potential_city[city_check])]]+1000:
             city_b = city_check
             city_check = -1
         city_check += 1
