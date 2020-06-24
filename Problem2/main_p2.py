@@ -22,7 +22,6 @@ list3 = NList.read().split()
 
 def KMPSearch(pat, txt):
 
-
     pat = " " + pat + " "
     txt = " " + txt + " "
     m = len(pat)
@@ -102,7 +101,7 @@ def storeposneg(a1,a2): #txt,result
         createResult.close()
 
     print("\nAll words counting - finished")
-    print("\n######################  COUNT/STORING POSITIVE & NEGATIVE WORDS IN TXT.FILE #################################\n")
+    print("\n######################  COUNT/STORING POSITIVE & NEGATIVE WORDS IN TXT.FILE - END #################################\n")
 def posnegwordspattern(b1):
     print("\n######################   POSITIVE & NEGATIVE WORDS PATTERN FROM TXT.FILE #################################\n")
     # pattern searching for positive and negative words in articles using KMP algorithm
@@ -239,40 +238,6 @@ def removeStop(x,y,z):
     input = x
     clean = y
     country = z
-    # Counting the number of words before and after cleaning.
-    # before
-    for i in range(len(input)):
-        file_name = input[i]
-        words = 0
-        with open(file_name, 'r') as file:
-            for line in file:
-                words += len(line.split())
-        numbers[i] = words
-        i += 1
-    # after
-    for i in range(len(cleaned)):
-        file_name = cleaned[i]
-        words = 0
-        with open(file_name, 'r') as file:
-            for line in file:
-                words += len(line.split())
-        totalnumber[i] = words
-        stopwords[i] = numbers[i] - totalnumber[i]
-        i += 1
-
-    # printing the data
-    print("\n-----------Total number of words--------------")
-
-    for k in range(len(numbers)):
-        print("For ", country[k], ": ", numbers[k], " words ")
-        k += 1
-
-    print("\n--------------Total number of stopwords-----------\n")
-    for k in range(len(stopwords)):
-        print("For ", country[k], ": ", stopwords[k], " stopwords")
-        k += 1
-
-    # printing the filtering process
     print("\n----------------Filtering-------------------------")
     delete_list = [" a ", " the ", " about ", " an ", " are ", " as ", " at ", " be ", " by ", " for ", " from ",
                    " how ", " in ", " is ", " it ", " of ", " on ", " or", " that ", " this ", " to ", " was ",
@@ -336,6 +301,40 @@ def removeStop(x,y,z):
 
         print("Done scanning and filtering process for:", infile)
         i += 1
+
+    # Counting the number of words before and after cleaning.
+    # before
+    for i in range(len(input)):
+        file_name = input[i]
+        words = 0
+        with open(file_name, 'r') as file:
+            for line in file:
+                words += len(line.split())
+        numbers[i] = words
+        i += 1
+    # after
+    for i in range(len(cleaned)):
+        file_name = cleaned[i]
+        words = 0
+        with open(file_name, 'r') as file:
+            for line in file:
+                words += len(line.split())
+        totalnumber[i] = words
+        stopwords[i] = numbers[i] - totalnumber[i]
+        i += 1
+
+    # printing the data
+    print("\n-----------Total number of words--------------")
+
+    for k in range(len(numbers)):
+        print("For ", country[k], ": ", numbers[k], " words ")
+        k += 1
+
+    print("\n--------------Total number of stopwords-----------\n")
+    for k in range(len(stopwords)):
+        print("For ", country[k], ": ", stopwords[k], " stopwords")
+        k += 1
+
     print("\n######################  REMOVING STOPWORDS FROM TXT.FILE - END #################################\n")
 def graph(P,N,n,t):
     Pcount = P
@@ -345,7 +344,9 @@ def graph(P,N,n,t):
     app = dash.Dash()
 
     app.title = 'word count'
+
     print("Histogram for Word Count and Stopwords")
+
     app.layout = html.Div(
         html.Div([
             html.H1(
@@ -382,16 +383,18 @@ def graph(P,N,n,t):
     )
 
 
-    app.run_server(debug=True, port=3007)
+
+    if __name__ == '__main__':
+        app.run_server(port=3007,host= '127.0.0.1', debug = False
+        )
 
 
 
 # Driver program to test the above function
 
 removeStop(input,cleaned,country)
-#stopwordPatternSearch(input,country) --> to see the pattern of stopwords using Rabin Karp algo
-#posnegwordspattern(cleaned) ---> to see the pattern of pos/neg words using KMPSearch algo
-storeposneg(cleaned,result)
 
-graph(Pcount,Ncount,numbers,totalnumber)
-
+#stopwordPatternSearch(input,country) #to see the pattern of stopwords using Rabin Karp algo
+#posnegwordspattern(cleaned) # to see the pattern of pos/neg words using KMPSearch algo
+#storeposneg(cleaned,result)
+#graph(Pcount,Ncount,numbers,totalnumber)
