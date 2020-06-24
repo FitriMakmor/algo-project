@@ -10,8 +10,8 @@ cleaned = ["CleanedTotalChina.txt","CleanedTotalHK.txt","CleanedTotalJakarta.txt
 country = ["China","Hong Kong","Jakarta","Japan","Korea","Taiwan","Thailand"]
 result = ["China.txt", "Hong Kong.txt", "Indonesia.txt", "Japan.txt", "SouthKorea.txt", "Taiwan.txt", "Thailand.txt"]
 #assigning values of 0 to the int arrays as the value will change later.
-numbers = [0,0,0,0,0,0,0]
-totalnumber = [0, 0, 0, 0, 0, 0, 0] #totalwords
+numbers = [0,0,0,0,0,0,0] #total words before clean
+totalnumber = [0, 0, 0, 0, 0, 0, 0] #totalwords after clean
 stopwords = [0,0,0,0,0,0,0]
 economic = [0.99,0,0,0,0,0,0,0]
 PList = open("PosWords.txt", 'r')
@@ -312,6 +312,7 @@ def removeStop(x,y,z):
 
                    ]
 
+    #to filter the stopwords
     for i in range(len(input)):
         infile = input[i]
         outfile = cleaned[i]
@@ -328,7 +329,7 @@ def removeStop(x,y,z):
         i += 1
 
 
-    # Counting the total number of words and stopwords
+    # Calculating the total number of words and stopwords
     # before
     for i in range(len(input)):
         file_name = input[i]
@@ -415,15 +416,16 @@ def graph(P,N,n,t):
         app.run_server(port=3007,host= '127.0.0.1', debug = False
         )
 def countecon(e,P,N):
-    tempStor = 0
+    print("############## PROCESS OF CALCULATING & WRITING ECON VALUE TO FILE - BEGIN ##################")
+
     j = 0
-    #totalnumberofpos&neg
-    for a in range(len(Pcount)):
-        tempStor = tempStor + (P[a] + N[a])
+    # #totalnumberofpos&neg
+    # for a in range(len(Pcount)):
+    #     tempStor = tempStor + (P[a] + N[a]) #
 
 
     for i in range(1, len(e),1):
-        e[i] = P[j] / tempStor
+        e[i] = (P[j] / (P[j] + N[j]))
         j = j + 1
 
     #to write the econ value to txt file for use in problem 3
@@ -431,6 +433,9 @@ def countecon(e,P,N):
     for b in range (len(e)):
         filex.writelines(str(e[b]) + " \n")
     filex.close()
+    print("Economic values is written to the file.")
+    print("############## PROCESS OF CALCULATING & WRITING ECON VALUE TO FILE - END ##################")
+
 # Driver program to test the above function
 
 removeStop(input,cleaned,country)
@@ -441,8 +446,8 @@ countecon(economic,Pcount,Ncount)
 #graph(Pcount,Ncount,numbers,totalnumber)
 
 #to view the economic values
-# for i in range (1,len(economic),1):
-#     print("For country : ",country[i-1],",the economic value is = ", economic[i] ,"\n")
+for i in range (1,len(economic),1):
+    print("For country : ",country[i-1],", the economic value is = ", economic[i] ,"\n")
 
 
 
