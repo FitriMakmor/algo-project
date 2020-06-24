@@ -65,24 +65,20 @@ country = [
 ]
 
 
-
-
-
 city_distance = [[0]*countries for i in range(countries)]
 for i in range(countries):
     for j in range(countries):
         city_distance[i][j] = distance(cd[country[i]], cd[country[j]])
 
-# change tsp2 to tsp if traveller returns
+# change tsp2 to tsp if traveller returns to starting country
 city_c = 0
 planned_route = tsp2(city_distance, 0, country)
 route = planned_route.get_route()
 
-# # Klu nak bandingkan distance antara dua country, boleh uncommment pastu refer list print(city_distance) bawah ni
-# print(city_distance)
+# # Uncomment the code below to view the distance matrix between the 8 countries (8 X 8)
+print(city_distance)
 
 
-# economy ni untuk digantikan dgn data prob2 yang bebeno
 econ = {
     "Malaysia": 0.99,
     "Jakarta": 0.0,
@@ -112,8 +108,8 @@ Narray = countneg.read().split()
 Parray = [int(i) for i in Parray]
 Narray = [int(i) for i in Narray]
 
-# comment/uncomment code bwh ni untuk tengok positive words dgn negative words
-# print(Parray, Narray)
+# comment/uncomment the code below to view positive and negative word counts
+print(Parray, Narray)
 
 
 while i<len(cities):
@@ -126,8 +122,8 @@ while i<len(cities):
     econ.update({cur_city : f})
     i += 1
 
-# # comment/uncomment code bwh ni untuk tengok economy score setiap negara
-# print(econ)
+# # comment/uncomment the code below to view the economic score of each country
+print(econ)
 
 val_list = list(econ.values())
 val_list.sort(reverse=True)
@@ -136,7 +132,7 @@ for i in range(countries):
     best_econ_route.append(get_dict_key(val_list[i], econ))
 
 
-# Bawah ni untuk soalan route Problem 3
+# Getting the optimised route from the previous shortest distance route
 potential_city = route.copy()
 new_route = [potential_city.pop(0)]
 city_b = 0
@@ -150,6 +146,7 @@ city_check = 1
 for h in range (len(potential_city)-1):
     while city_check < len(potential_city):
         if city_check != city_b and econ[potential_city[city_b]]+.02 < econ[potential_city[city_check]] and city_distance[city_c][country.index(potential_city[city_b])]*1.4 >= city_distance[city_c][country.index(potential_city[city_check])]:
+            print("valid!")
             city_b = city_check
             city_check = -1
         city_check += 1
@@ -160,7 +157,7 @@ for h in range (len(potential_city)-1):
 new_route.append(potential_city.pop(0))
 
 print("New route with given parameters:", new_route)
-print("Total distance: ", total_distance(new_route,))
+print("Total distance: ", total_distance(new_route))
 
 
 max = -sys.maxsize
@@ -281,7 +278,7 @@ heapSort(routes)
 # webbrowser.open(url1, new=2)
 # # -----------------------------------------------------------------------
 
-# # ------------------View shortest route through Google Map API-----------
+# # ------------------View optimised route through Google Map API-----------
 # # Polyline
 # gmap1 = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyD803CsvDwLLM-f2exIrQdC1e_M1d7nnYg")
 #
