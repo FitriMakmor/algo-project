@@ -8,11 +8,12 @@ q = 101 # A prime number
 input = ["TotalChina.txt","TotalHK.txt","TotalJakarta.txt","TotalJapan.txt","TotalKorea.txt","TotalTaiwan.txt","TotalThai.txt"]
 cleaned = ["CleanedTotalChina.txt","CleanedTotalHK.txt","CleanedTotalJakarta.txt","CleanedTotalJapan.txt","CleanedTotalKorea.txt","CleanedTotalTaiwan.txt","CleanedTotalThai.txt"]
 country = ["China","Hong Kong","Jakarta","Japan","Korea","Taiwan","Thailand"]
-result = ["Thailand.txt", "SouthKorea.txt", "China.txt", "Japan.txt", "Hong Kong.txt", "Indonesia.txt", "Taiwan.txt"]
+result = ["China.txt", "Hong Kong.txt", "Indonesia.txt", "Japan.txt", "SouthKorea.txt", "Taiwan.txt", "Thailand.txt"]
 #assigning values of 0 to the int arrays as the value will change later.
 numbers = [0,0,0,0,0,0,0]
 totalnumber = [0, 0, 0, 0, 0, 0, 0] #totalwords
 stopwords = [0,0,0,0,0,0,0]
+economic = [0.99,0,0,0,0,0,0,0]
 PList = open("PosWords.txt", 'r')
 NList = open("NegWords.txt", 'r')
 Pcount = [0, 0, 0, 0, 0, 0, 0]
@@ -30,6 +31,7 @@ def KMPSearch(pat, txt):
     lps = [0] * m
     j = 0  # index for pat[]
     i = 0  # index for txt[]
+    computeLPSArray(pat, m, lps)
 
     while i < n:  # checking first index of pat and length as both starter from 0
         if pat[j] == txt[i]:
@@ -45,6 +47,29 @@ def KMPSearch(pat, txt):
                 j = lps[j - 1]
             else:
                 i += 1
+def computeLPSArray(pat, M, lps):
+    len = 0  # length of the previous longest prefix suffix
+
+    lps[0]  # lps[0] is always 0
+    i = 1
+
+    # the loop calculates lps[i] for i = 1 to M-1
+    while i < M:
+        if pat[i] == pat[len]:
+            len += 1
+            lps[i] = len
+            i += 1
+        else:
+            # This is tricky. Consider the example.
+            # AAACAAAA and i = 7. The idea is similar
+            # to search step.
+            if len != 0:
+                len = lps[len - 1]
+
+                # Also, note that we do not increment i here
+            else:
+                lps[i] = 0
+                i += 1
 def storeposneg(a1,a2): #txt,result
     print("\n######################  COUNT/STORING POSITIVE & NEGATIVE WORDS IN TXT.FILE #################################\n")
     article = a1
@@ -57,23 +82,24 @@ def storeposneg(a1,a2): #txt,result
         list1 = readFile.read().split()
         with open(result_list, 'w+') as createResult:
             print("\nCounting positive and negative words in file: " + result[f] + "\n")
-            createResult.write("\n[Positive]: \n")
+            #uncomment the .write to append changes to text file
+            # createResult.write("\n[Positive]: \n")
             Pcounter = 0
             for a in list2:
                 for b in list1:
                     if a == b:
-                        createResult.write(a + ", ")
+                        # createResult.write(a + ", ")
                         Pcounter += 1
             Pcount[f] = Pcounter
-            createResult.write("\n")
-            createResult.write("\nTotal Positive Words: " + str(Pcounter) + "\n")
+            # createResult.write("\n")
+            # createResult.write("\nTotal Positive Words: " + str(Pcounter) + "\n")
 
             file1 = open("countpos.txt", "a")  # append mode
-            file1.write(str(Pcounter))
-            file1.write("\n")
+            # file1.write(str(Pcounter))
+            # file1.write("\n")
             file1.close()
 
-            createResult.write("______________________\n")
+            # createResult.write("______________________\n")
 
             # counter for negative words in file
             Ncounter = 0
@@ -81,15 +107,16 @@ def storeposneg(a1,a2): #txt,result
             for a in list3:
                 for b in list1:
                     if a == b:
-                        createResult.write(a + ", ")
+                        # createResult.write(a + ", ")
                         Ncounter += 1
             Ncount[f] = Ncounter
-            createResult.write("\n")
-            createResult.write("\nTotal Negative Words: " + str(Ncounter) + "\n")
-            file2 = open("countneg.txt", "a")  # append mode
-            file2.write(str(Ncounter))
-            file2.write("\n")
-            file2.close()
+            # uncomment the commands to append changes to text file
+            # createResult.write("\n")
+            # createResult.write("\nTotal Negative Words: " + str(Ncounter) + "\n")
+            # file2 = open("countneg.txt", "a")  # append mode
+            # file2.write(str(Ncounter))
+            # file2.write("\n")
+            # file2.close()
 
             print("Total Positive words: ", Pcount[f])
             print("Total Negative words: ", Ncount[f])
@@ -126,8 +153,6 @@ def posnegwordspattern(b1):
 
     print("\nAll pattern searching - completed")
     print("\n######################   POSITIVE & NEGATIVE WORDS PATTERN FROM TXT.FILE - END #################################\n")
-
-
 def search(pat, txt, q):
 	M = len(pat)
 	N = len(txt)
@@ -294,7 +319,7 @@ def removeStop(x,y,z):
         fout = open(outfile, "w+")
         for line in fin:
             for word in delete_list:
-                line = line.replace(word, " ")
+                line = line.replace(word, " ") #it removes the stopwords
             fout.write(line)
         fin.close()
         fout.close()
@@ -302,7 +327,8 @@ def removeStop(x,y,z):
         print("Done scanning and filtering process for:", infile)
         i += 1
 
-    # Counting the number of words before and after cleaning.
+
+    # Counting the total number of words and stopwords
     # before
     for i in range(len(input)):
         file_name = input[i]
@@ -310,7 +336,7 @@ def removeStop(x,y,z):
         with open(file_name, 'r') as file:
             for line in file:
                 words += len(line.split())
-        numbers[i] = words
+        numbers[i] = words #total number of words before clean
         i += 1
     # after
     for i in range(len(cleaned)):
@@ -319,8 +345,8 @@ def removeStop(x,y,z):
         with open(file_name, 'r') as file:
             for line in file:
                 words += len(line.split())
-        totalnumber[i] = words
-        stopwords[i] = numbers[i] - totalnumber[i]
+        totalnumber[i] = words #total number of words after clean
+        stopwords[i] = numbers[i] - totalnumber[i] #number before clean - after clean
         i += 1
 
     # printing the data
@@ -334,6 +360,8 @@ def removeStop(x,y,z):
     for k in range(len(stopwords)):
         print("For ", country[k], ": ", stopwords[k], " stopwords")
         k += 1
+
+
 
     print("\n######################  REMOVING STOPWORDS FROM TXT.FILE - END #################################\n")
 def graph(P,N,n,t):
@@ -383,18 +411,37 @@ def graph(P,N,n,t):
     )
 
 
-
     if __name__ == '__main__':
         app.run_server(port=3007,host= '127.0.0.1', debug = False
         )
+def countecon(e,P,N):
+    tempStor = 0
+    j = 0
+    #totalnumberofpos&neg
+    for a in range(len(Pcount)):
+        tempStor = tempStor + (P[a] + N[a])
+
+
+    for i in range(1, len(e),1):
+        e[i] = P[j] / tempStor
+        j = j + 1
 
 
 
 # Driver program to test the above function
 
 removeStop(input,cleaned,country)
-
 #stopwordPatternSearch(input,country) #to see the pattern of stopwords using Rabin Karp algo
 #posnegwordspattern(cleaned) # to see the pattern of pos/neg words using KMPSearch algo
-# storeposneg(cleaned,result)
+storeposneg(cleaned,result)
+countecon(economic,Pcount,Ncount)
 #graph(Pcount,Ncount,numbers,totalnumber)
+
+#to view the economic values
+# for i in range (1,len(economic),1):
+#     print("For country : ",country[i-1],",the economic value is = ", economic[i] ,"\n")
+
+
+
+
+
