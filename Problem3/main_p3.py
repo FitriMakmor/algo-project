@@ -156,6 +156,7 @@ min = sys.maxsize
 
 # ---------------Generate all possible routes and append to routes.txt----------------
 possible_routes = list(itertools.permutations(country[1:]))
+f = open("routes.txt", "w")
 for i in range(len(possible_routes)):
     modified_possible_route = list(possible_routes[i])
     modified_possible_route.insert(0, "Malaysia")
@@ -164,34 +165,36 @@ for i in range(len(possible_routes)):
         max = tot_dist
     if tot_dist < min:
         min = tot_dist
-    # f = open("routes.txt", "a")
-    # f.write("Route %4d          -> %s\n" % (i+1, str(modified_possible_route)))
-    # f.write("Total distance (km) -> %s\n" % tot_dist)
+
+    f.writelines("Route %4d          -> %s\n" % (i+1, str(modified_possible_route)))
+    f.writelines("Total distance (km) -> %s\n" % tot_dist)
     route_econ = []
     for j in range (countries):
         route_econ.append(econ[modified_possible_route[j]])
-    # f.write("Economy score       -> %s\n\n" % route_econ)
-    # f.close()
+    f.writelines("Economy score       -> %s\n\n" % route_econ)
+
 print("\nMax Distance: ", max, "\nMin Distance: ", min)
+f.close()
 # ------------------------------------------------------------------------------------
 
 
-# # ---------------Generate all routes WITH SCORE and append to scored_routes.txt-----
-# for i in range(len(possible_routes)):
-#     modified_possible_route = list(possible_routes[i])
-#     modified_possible_route.insert(0, "Malaysia")
-#     tot_dist = total_distance(modified_possible_route)
-#     f = open("scored_routes.txt", "a")
-#     f.write("Route %4d          -> %s\n" % (i+1, str(modified_possible_route)))
-#     f.write("Total distance (km) -> %s\n" % tot_dist)
-#     route_econ = []
-#     for j in range(countries):
-#         route_econ.append(econ[modified_possible_route[j]])
-#     f.write("Economy score       -> %s\n" % route_econ)
-#     rte_score = route_score(modified_possible_route, tot_dist, max, min)
-#     f.write("Route score         -> %s\n\n" % rte_score)
-#     f.close()
-# # ------------------------------------------------------------------------------------
+# ---------------Generate all routes WITH SCORE and append to scored_routes.txt-----
+f = open("scored_routes.txt", "w")
+for i in range(len(possible_routes)):
+    modified_possible_route = list(possible_routes[i])
+    modified_possible_route.insert(0, "Malaysia")
+    tot_dist = total_distance(modified_possible_route)
+
+    f.writelines("Route %4d          -> %s\n" % (i+1, str(modified_possible_route)))
+    f.writelines("Total distance (km) -> %s\n" % tot_dist)
+    route_econ = []
+    for j in range(countries):
+        route_econ.append(econ[modified_possible_route[j]])
+    f.writelines("Economy score       -> %s\n" % route_econ)
+    rte_score = route_score(modified_possible_route, tot_dist, max, min)
+    f.writelines("Route score         -> %s\n\n" % rte_score)
+f.close()
+# ------------------------------------------------------------------------------------
 
 f = open("scored_routes.txt")
 lines = f.readlines()
@@ -210,44 +213,44 @@ f.close()
 heapSort(routes)
 
 # # ----------------Inserted the newly sorted routes into sorted_routes.txt-------------
-# f = open("sorted_routes.txt", "a")
-# for i in range(len(lines)//5):
-#     f.write("Ranking             -> %4d\n" % (i+1))
-#     f.write(routes[i].content)
-# f.close()
+f = open("sorted_routes.txt", "w")
+for i in range(len(lines)//5):
+    f.writelines("Ranking             -> %4d\n" % (i+1))
+    f.writelines(routes[i].content)
+f.close()
 # # ------------------------------------------------------------------------------------
 
-# # -------------Masukkan Data shortest route ke dalam text file----------------------
-# f = open("compare_three_routes.txt", "a")
-# f.write("Route 0001          -> %s\n" % str(route))
-# f.write("Total distance (km) -> %s\n" % total_distance(route))
-# route_econ = []
-# for i in range (countries):
-#     route_econ.append(econ[route[i]])
-# f.write("Economy score       -> %s\n\n" % route_econ)
-# f.close()
+# -------------Masukkan Data shortest route ke dalam text file----------------------
+f = open("compare_three_routes.txt", "w")
+f.writelines("Route 0001          -> %s\n" % str(route))
+f.writelines("Total distance (km) -> %s\n" % total_distance(route))
+route_econ = []
+for i in range (countries):
+    route_econ.append(econ[route[i]])
+f.write("Economy score       -> %s\n\n" % route_econ)
+f.close()
 # # -----------------------------------------------------------------------------------
 
 # # -------------Masukkan Data best econ route ke dalam text file----------------------
-# f = open("compare_three_routes.txt", "a")
-# f.write("Route 0002          -> %s\n" % str(best_econ_route))
-# f.write("Total distance (km) -> %s\n" % total_distance(best_econ_route))
-# route_econ = []
-# for i in range (countries):
-#     route_econ.append(econ[best_econ_route[i]])
-# f.write("Economy score       -> %s\n\n" % route_econ)
-# f.close()
+f = open("compare_three_routes.txt", "w")
+f.writelines("Route 0002          -> %s\n" % str(best_econ_route))
+f.writelines("Total distance (km) -> %s\n" % total_distance(best_econ_route))
+route_econ = []
+for i in range (countries):
+    route_econ.append(econ[best_econ_route[i]])
+f.write("Economy score       -> %s\n\n" % route_econ)
+f.close()
 # # -----------------------------------------------------------------------------------
 
 # # -------------Masukkan optimised route ke dalam text file----------------------
-# f = open("compare_three_routes.txt", "a")
-# f.write("Route 0003          -> %s\n" % str(new_route))
-# f.write("Total distance (km) -> %s\n" % total_distance(new_route))
-# route_econ = []
-# for i in range (countries):
-#     route_econ.append(econ[new_route[i]])
-# f.write("Economy score       -> %s\n\n" % route_econ)
-# f.close()
+f = open("compare_three_routes.txt", "w")
+f.writelines("Route 0003          -> %s\n" % str(new_route))
+f.writelines("Total distance (km) -> %s\n" % total_distance(new_route))
+route_econ = []
+for i in range (countries):
+    route_econ.append(econ[new_route[i]])
+f.write("Economy score       -> %s\n\n" % route_econ)
+f.close()
 # # -----------------------------------------------------------------------------------
 
 

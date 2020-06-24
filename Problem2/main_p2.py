@@ -74,7 +74,8 @@ def storeposneg(a1,a2): #txt,result
     print("\n######################  COUNT/STORING POSITIVE & NEGATIVE WORDS IN TXT.FILE #################################\n")
     article = a1
     result = a2
-
+    file1 = open("countpos.txt", "w")
+    file2 = open("countneg.txt", "w")
     for f in range(len(article)):
         file_List = article[f]
         result_list = result[f]
@@ -83,23 +84,23 @@ def storeposneg(a1,a2): #txt,result
         with open(result_list, 'w+') as createResult:
             print("\nCounting positive and negative words in file: " + result[f] + "\n")
             #uncomment the .write to append changes to text file
-            # createResult.write("\n[Positive]: \n")
+            createResult.write("\n[Positive]: \n")
             Pcounter = 0
             for a in list2:
                 for b in list1:
                     if a == b:
-                        # createResult.write(a + ", ")
+                        createResult.write(a + ", ")
                         Pcounter += 1
             Pcount[f] = Pcounter
-            # createResult.write("\n")
-            # createResult.write("\nTotal Positive Words: " + str(Pcounter) + "\n")
+            createResult.write("\n")
+            createResult.write("\nTotal Positive Words: " + str(Pcounter) + "\n")
 
-            file1 = open("countpos.txt", "a")  # append mode
-            # file1.write(str(Pcounter))
-            # file1.write("\n")
-            file1.close()
+            # append mode
+            file1.writelines(str(Pcounter))
+            file1.writelines("\n")
 
-            # createResult.write("______________________\n")
+
+            createResult.write("______________________\n")
 
             # counter for negative words in file
             Ncounter = 0
@@ -107,16 +108,16 @@ def storeposneg(a1,a2): #txt,result
             for a in list3:
                 for b in list1:
                     if a == b:
-                        # createResult.write(a + ", ")
+                        createResult.write(a + ", ")
                         Ncounter += 1
             Ncount[f] = Ncounter
             # uncomment the commands to append changes to text file
-            # createResult.write("\n")
-            # createResult.write("\nTotal Negative Words: " + str(Ncounter) + "\n")
-            # file2 = open("countneg.txt", "a")  # append mode
-            # file2.write(str(Ncounter))
-            # file2.write("\n")
-            # file2.close()
+            createResult.write("\n")
+            createResult.write("\nTotal Negative Words: " + str(Ncounter) + "\n")
+              # append mode
+            file2.writelines(str(Ncounter))
+            file2.writelines("\n")
+
 
             print("Total Positive words: ", Pcount[f])
             print("Total Negative words: ", Ncount[f])
@@ -124,7 +125,8 @@ def storeposneg(a1,a2): #txt,result
             f += 1
         readFile.close()
         createResult.close()
-
+    file1.close()
+    file2.close()
     print("\nAll words counting - finished")
     print("\n######################  COUNT/STORING POSITIVE & NEGATIVE WORDS IN TXT.FILE - END #################################\n")
 def posnegwordspattern(b1):
