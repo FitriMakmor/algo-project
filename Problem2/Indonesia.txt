@@ -1,2 +1,11 @@
 
+[Positive]: 
+available, bolster, dedicated, flexible, gained, great, led, led, led, led, led, led, led, led, protect, rapid, reasonable, reasonable, safe, significant, significant, significant, significant, stabilize, stimulate, support, support, support, well, worth, worth, worth, worth, 
+
+Total Positive Words: 33
+______________________
+
 [Negative]: 
+bad, blunt, breaking, burden, concerns, concerns, concerns, crash, crash, crashing, crashing, crisis, crisis, crisis, crisis, dead, death, death, death, decline, decline, decline, decline, decline, decline, desperate, difficult, downfall, downfall, downfall, drag, drags, dump, dumped, dumped, dumped, dumped, dumped, failed, fall, fall, fall, fear, fears, fears, fears, fell, fell, fell, fell, fell, fell, fleeing, gross, gross, illness, illness, illness, infected, infected, infected, killed, limit, limit, limit, limit, limit, limit, limit, limits, lose, loss, lost, lost, lost, nervous, outbreak, outbreak, panic, panic, panicking, recession, recession, rejection, slashing, slow, slow, steep, steep, stress, stress, struggle, succumb, suffered, suffering, toll, underestimate, virus, virus, virus, virus, virus, virus, volatile, volatile, weaken, weaken, weakening, weakening, weakening, worsen, worst, worst, worst, 
+
+Total Negative Words: 114
