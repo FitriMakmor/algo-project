@@ -32,12 +32,13 @@ def get_dict_key(val, dict):
 def route_score(city_route, tot_distance, highest, lowest):
     no_of_edges = len(country)-1
     middle = (highest+lowest)/2
+    # Route scoring is subjective, hence the existence of constants
     A = 1
     B = 1
     sum_score = 0
     for i in range(len(country)):
         sum_score = sum_score + (A * (econ[city_route[i]]) * (no_of_edges-i))
-    sum_score = sum_score + (B * (middle/tot_distance))
+    sum_score = sum_score + (B * ((middle/tot_distance) * no_of_edges))
     return sum_score
 
 
