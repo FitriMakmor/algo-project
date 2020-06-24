@@ -426,8 +426,11 @@ def countecon(e,P,N):
         e[i] = P[j] / tempStor
         j = j + 1
 
-
-
+    #to write the econ value to txt file for use in problem 3
+    filex = open("econs.txt","w")
+    for b in range (len(e)):
+        filex.writelines(str(e[b]) + " \n")
+    filex.close()
 # Driver program to test the above function
 
 removeStop(input,cleaned,country)
