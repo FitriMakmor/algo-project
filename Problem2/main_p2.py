@@ -302,7 +302,6 @@ def removeStop(x,y,z):
         print("Done scanning and filtering process for:", infile)
         i += 1
 
-
     # Counting the number of words before and after cleaning.
     # before
     for i in range(len(input)):
@@ -335,8 +334,6 @@ def removeStop(x,y,z):
     for k in range(len(stopwords)):
         print("For ", country[k], ": ", stopwords[k], " stopwords")
         k += 1
-
-
 
     print("\n######################  REMOVING STOPWORDS FROM TXT.FILE - END #################################\n")
 def graph(P,N,n,t):
@@ -386,6 +383,7 @@ def graph(P,N,n,t):
     )
 
 
+
     if __name__ == '__main__':
         app.run_server(port=3007,host= '127.0.0.1', debug = False
         )
@@ -395,12 +393,8 @@ def graph(P,N,n,t):
 # Driver program to test the above function
 
 removeStop(input,cleaned,country)
+
 #stopwordPatternSearch(input,country) #to see the pattern of stopwords using Rabin Karp algo
 #posnegwordspattern(cleaned) # to see the pattern of pos/neg words using KMPSearch algo
 #storeposneg(cleaned,result)
 #graph(Pcount,Ncount,numbers,totalnumber)
-
-
-
-
-

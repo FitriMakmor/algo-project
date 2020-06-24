@@ -2,7 +2,6 @@ from gmplot import gmplot
 import webbrowser
 import os
 from geopy.distance import geodesic
-from Problem3.tsp import tsp
 from Problem3.tsp2 import tsp2
 from Problem3.textRoute import textRoute
 from Problem3.heapSort import heapSort
@@ -117,7 +116,7 @@ Narray = [int(i) for i in Narray]
 # print(Parray, Narray)
 
 
-for i in range(len(Parray)):
+while i<len(cities):
     Pnum = Parray[i]
     Nnum = Narray[i]
     percent = ((Pnum)/(Pnum+Nnum))
@@ -282,7 +281,7 @@ heapSort(routes)
 # webbrowser.open(url1, new=2)
 # # -----------------------------------------------------------------------
 
-# # ------------------View route through Google Map API--------------------
+# # ------------------View shortest route through Google Map API-----------
 # # Polyline
 # gmap1 = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyD803CsvDwLLM-f2exIrQdC1e_M1d7nnYg")
 #
