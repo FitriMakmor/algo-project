@@ -2,7 +2,6 @@ from gmplot import gmplot
 import webbrowser
 import os
 from geopy.distance import geodesic
-from Problem3.tsp import tsp
 from Problem3.tsp2 import tsp2
 from Problem3.textRoute import textRoute
 from Problem3.heapSort import heapSort

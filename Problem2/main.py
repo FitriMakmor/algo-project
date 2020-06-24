@@ -393,9 +393,5 @@ removeStop(input,cleaned,country)
 #posnegwordspattern(cleaned) ---> to see the pattern of pos/neg words using KMPSearch algo
 storeposneg(cleaned,result)
 
-# graph(Pcount,Ncount,numbers,totalnumber)
-
-
-
-
+graph(Pcount,Ncount,numbers,totalnumber)
 
