@@ -415,6 +415,7 @@ def graph(P,N,n,t):
         app.run_server(port=3007,host= '127.0.0.1', debug = False
         )
 def countecon(e,P,N):
+    print("############## PROCESS OF CALCULATING & WRITING ECON VALUE TO FILE - BEGIN ##################")
     tempStor = 0
     j = 0
     #totalnumberofpos&neg
@@ -431,6 +432,8 @@ def countecon(e,P,N):
     for b in range (len(e)):
         filex.writelines(str(e[b]) + " \n")
     filex.close()
+    print("Economic values is written to the file.")
+    print("############## PROCESS OF CALCULATING & WRITING ECON VALUE TO FILE - END ##################")
 # Driver program to test the above function
 
 removeStop(input,cleaned,country)
