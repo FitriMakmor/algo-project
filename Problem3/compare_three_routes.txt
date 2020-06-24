@@ -1,14 +1,12 @@
-SHORTEST DISTANCE ROUTE
-Route 0001          -> ['Malaysia', 'Jakarta', 'Bangkok', 'Hong Kong', 'Taipei', 'Beijing', 'Seoul', 'Tokyo']
+Route Shrt          -> ['Malaysia', 'Jakarta', 'Bangkok', 'Hong Kong', 'Taipei', 'Beijing', 'Seoul', 'Tokyo']
 Total distance (km) -> 9739.894268846501
 Economy score       -> [0.99, 0.22, 0.32, 0.34, 0.57, 0.32, 0.47, 0.27]
 
-BEST ECONOMY ROUTE
-Route 0002          -> ['Malaysia', 'Taipei', 'Seoul', 'Hong Kong', 'Bangkok', 'Bangkok', 'Tokyo', 'Jakarta']
-Total distance (km) -> 18809.197311721895
+Route Econ          -> ['Malaysia', 'Taipei', 'Seoul', 'Hong Kong', 'Beijing', 'Beijing', 'Tokyo', 'Jakarta']
+Total distance (km) -> 16615.43544316553
 Economy score       -> [0.99, 0.57, 0.47, 0.34, 0.32, 0.32, 0.27, 0.22]
 
-"OPTIMISED" ROUTE
-Route 0003          -> ['Malaysia', 'Bangkok', 'Hong Kong', 'Taipei', 'Seoul', 'Beijing', 'Tokyo', 'Jakarta']
+Route Opti          -> ['Malaysia', 'Bangkok', 'Hong Kong', 'Taipei', 'Seoul', 'Beijing', 'Tokyo', 'Jakarta']
 Total distance (km) -> 13936.38547390654
 Economy score       -> [0.99, 0.32, 0.34, 0.57, 0.47, 0.32, 0.27, 0.22]
+

@@ -33,8 +33,8 @@ def route_score(city_route, tot_distance, highest, lowest):
     no_of_edges = len(country)-1
     middle = (highest+lowest)/2
     # Route scoring is subjective, hence the existence of constants
-    A = 1
-    B = 1
+    A = 2
+    B = 0.5
     sum_score = 0
     for i in range(len(country)):
         sum_score = sum_score + (A * (econ[city_route[i]]) * (no_of_edges-i))
@@ -222,34 +222,32 @@ f.close()
 
 # -------------Masukkan Data shortest route ke dalam text file----------------------
 f = open("compare_three_routes.txt", "w")
-f.writelines("Route 0001          -> %s\n" % str(route))
+f.writelines("Route Shrt          -> %s\n" % str(route))
 f.writelines("Total distance (km) -> %s\n" % total_distance(route))
 route_econ = []
 for i in range (countries):
     route_econ.append(econ[route[i]])
-f.write("Economy score       -> %s\n\n" % route_econ)
-f.close()
+f.writelines("Economy score       -> %s\n\n" % route_econ)
 # # -----------------------------------------------------------------------------------
 
 # # -------------Masukkan Data best econ route ke dalam text file----------------------
-f = open("compare_three_routes.txt", "w")
-f.writelines("Route 0002          -> %s\n" % str(best_econ_route))
+
+f.writelines("Route Econ          -> %s\n" % str(best_econ_route))
 f.writelines("Total distance (km) -> %s\n" % total_distance(best_econ_route))
 route_econ = []
 for i in range (countries):
     route_econ.append(econ[best_econ_route[i]])
-f.write("Economy score       -> %s\n\n" % route_econ)
-f.close()
+f.writelines("Economy score       -> %s\n\n" % route_econ)
 # # -----------------------------------------------------------------------------------
 
 # # -------------Masukkan optimised route ke dalam text file----------------------
-f = open("compare_three_routes.txt", "w")
-f.writelines("Route 0003          -> %s\n" % str(new_route))
+
+f.writelines("Route Opti          -> %s\n" % str(new_route))
 f.writelines("Total distance (km) -> %s\n" % total_distance(new_route))
 route_econ = []
 for i in range (countries):
     route_econ.append(econ[new_route[i]])
-f.write("Economy score       -> %s\n\n" % route_econ)
+f.writelines("Economy score       -> %s\n\n" % route_econ)
 f.close()
 # # -----------------------------------------------------------------------------------
 
@@ -290,20 +288,20 @@ f.close()
 # webbrowser.open(url1, new=2)
 # # -----------------------------------------------------------------------
 
-# # ------------------View BEST route through Google Map API--------------------
-# best_route = ["Malaysia","Taipei","Seoul","Tokyo","Beijing","Hong Kong","Bangkok","Jakarta"]
-# gmap1 = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyD803CsvDwLLM-f2exIrQdC1e_M1d7nnYg")
-#
-# route_lats, route_lons = [], []
-# for i in range(countries):
-#     route_lats.append(cd[best_route[i]][0])
-#     route_lons.append(cd[best_route[i]][1])
-#
-# gmap1.plot(route_lats, route_lons,'darkorchid', edge_width = 4.5)
-#
-# gmap1.draw("mapPolyline.html")
-#
-# # open the HTML file in a web browser
-# url1 = os.getcwd()+"\mapPolyline.html"
-# webbrowser.open(url1, new=2)
-# # -----------------------------------------------------------------------
+# ------------------View BEST route through Google Map API--------------------
+best_route = ["Malaysia","Taipei","Seoul","Tokyo","Beijing","Hong Kong","Bangkok","Jakarta"]
+gmap1 = gmplot.GoogleMapPlotter(18.496610, 115.147213, 4, "AIzaSyD803CsvDwLLM-f2exIrQdC1e_M1d7nnYg")
+
+route_lats, route_lons = [], []
+for i in range(countries):
+    route_lats.append(cd[best_route[i]][0])
+    route_lons.append(cd[best_route[i]][1])
+
+gmap1.plot(route_lats, route_lons,'darkorchid', edge_width = 4.5)
+
+gmap1.draw("mapPolyline.html")
+
+# open the HTML file in a web browser
+url1 = os.getcwd()+"\mapPolyline.html"
+webbrowser.open(url1, new=2)
+# -----------------------------------------------------------------------
