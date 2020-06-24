@@ -82,42 +82,33 @@ print(city_distance)
 
 econ = {
     "Malaysia": 0.99,
-    "Jakarta": 0.0,
-    "Bangkok": 0.0,
-    "Taipei": 0.0,
-    "Hong Kong": 0.0,
-    "Tokyo": 0.0,
     "Beijing": 0.0,
-    "Seoul": 0.0
+    "Hong Kong": 0.0,
+    "Jakarta": 0.0,
+    "Tokyo": 0.0,
+    "Seoul": 0.0,
+    "Taipei": 0.0,
+    "Bangkok": 0.0
 }
 
-cities = ["Bangkok", "Seoul", "Beijing", "Tokyo", "Hong Kong", "Jakarta", "Taipei"]
+cities = ["Beijing", "Hong Kong", "Jakarta", "Tokyo", "Seoul", "Taipei", "Bangkok"]
 
 pos_url, neg_url = "", ""
 os_type = platform.system()
 if os_type == "Windows":
-    pos_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"\\Problem2\\countpos.txt"
-    neg_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"\\Problem2\\countneg.txt"
+    econ_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"\\Problem2\\econs.txt"
 elif os_type == "Linux" or "Max":
-    pos_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"/Problem2/countpos.txt"
-    neg_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"/Problem2/countneg.txt"
+    econ_url = os.path.normpath(os.getcwd() + os.sep + os.pardir)+"/Problem2/econs.txt"
 
-countpos = open(pos_url, "r")
-countneg = open(neg_url, "r")
-Parray = countpos.read().split()
-Narray = countneg.read().split()
-Parray = [int(i) for i in Parray]
-Narray = [int(i) for i in Narray]
+econs_file = open(econ_url, "r")
 
-# comment/uncomment the code below to view positive and negative word counts
-print(Parray, Narray)
+economic = econs_file.read().split()
+economic = economic[1:]
 
-
+i=0
 while i<len(cities):
-    Pnum = Parray[i]
-    Nnum = Narray[i]
-    percent = ((Pnum)/(Pnum+Nnum))
-    percent = "{:.2f}".format(percent)
+    val = float(economic[i])
+    percent = "{:.2f}".format(val)
     f = float(percent)
     cur_city = cities[i]
     econ.update({cur_city : f})
@@ -147,7 +138,6 @@ city_check = 1
 for h in range (len(potential_city)-1):
     while city_check < len(potential_city):
         if city_check != city_b and econ[potential_city[city_b]]+.02 < econ[potential_city[city_check]] and city_distance[city_c][country.index(potential_city[city_b])]*1.4 >= city_distance[city_c][country.index(potential_city[city_check])]:
-            print("valid!")
             city_b = city_check
             city_check = -1
         city_check += 1
